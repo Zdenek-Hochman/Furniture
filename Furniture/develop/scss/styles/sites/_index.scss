@@ -1,0 +1,848 @@
+@charset "UTF-8";
+
+/*----------------------------Background--------------------------*/
+
+#Background {
+    width: 100%;
+    height: 36.8vw; //530px
+    display: inline-block;
+    position: relative;
+    @include LinearGradient(rgba(0,0,0,1), rgba(47,47,47,1), 18%, 100%);
+
+    #Information {
+        @include Font(RalewayMedium, bold, 1vw, null);
+        position: absolute;
+        right: 1.5%;
+        bottom: -11.5%;
+        @include Transform(right, rotate(90deg));
+        margin: 0;
+        letter-spacing: 0.2em;
+        height: 0;
+        span:nth-child(1) {
+            color: white;
+        }
+        &::after {
+            @include Pseudo("", block, 100%, 2px);
+            background-color: rgba(255,0,0,0.7);
+            position: relative;
+            left: 2.3vw;
+            margin-top: 0.35vw;
+        }
+    }
+
+/*----------------------------Navigation--------------------------*/
+    nav#IndexMenu {
+        width: 96%;
+        height: 40px;
+        margin: 0.3vw 0px 0.3vw 0px;
+        z-index: 2;
+        display: flex;
+        position: relative;
+        align-items: center;
+        #Menu {
+            width: 100%;
+            height: 50px;
+            top: 0;
+            position: relative;
+            #Fixer
+            {
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+                height: 50px;
+                ul {
+                    display: flex;
+                    padding: 0;
+                    @include MediaQuery("Tablet-Small", max) {
+                        display: none;
+                    }
+                    li.MainHeader {
+                        margin: 0px 10px;
+                        padding: 0;
+                        border: none;
+                        @include Transition((padding, transform, border), 0.2s, null, linear);
+                        @include cursor(pointer);
+                        &:hover {
+                            @include Transform(null, scale(1.1));
+                            border-left: 2.1px solid $RedColor;
+                            padding-left: 5px;
+                            @include Transition(all, 0.2s, null, linear);
+                        }
+                        a {
+                            @include Font(RalewayMedium, null, 15px, null);
+                            letter-spacing: 0.07em;
+                            @include UserSelect(none);
+                        }
+                        ul.SubMenu {
+                            position: absolute;
+                            background-color: black;
+                            flex-direction: column;
+                            align-items: flex-start;
+                            margin-left: -0.4vw;
+                            width: 10vw;
+                            display: none !important; ////////////////SMAZAT;
+                            li {
+                                border-bottom: 2px solid white;
+                                display: inline-flex;
+                                padding: 0.5vw 0px;
+                                width: 95%;
+                                a {
+                                    font-size: 13px;
+                                }
+                            }
+                        }
+                        ul.SubSubMenu {
+                            left: 100%;
+                            margin: -0.5vw 0px 0px 0px;
+                        }
+                    }
+                    li:last-child {
+                        margin-right: 0;
+                    }
+                }
+                #MobileMenu {
+                    @include MediaQuery("Tablet-Small", max) {
+                        height: 30px;
+                        width: 30px;
+                        position: relative;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        @include cursor(pointer);
+                        z-index: 1;
+                        span {
+                            background-color: white;
+                            height: 1.5px;
+                            display: grid;
+                            @include Transition(background, 0.4s, null, ease-in-out);
+                            &::after, &::before {
+                                @include Pseudo("", table, 100%, 2px);
+                                background-color: white;
+                                position: relative;
+                                top: -8px;
+                                @include Transition(all, 0.4s, null, ease-in-out);
+                            }
+                            &::after {
+                                top: 7px;
+                            }
+                        }
+                    }
+                }
+                .Open {
+                    span  {
+                        background-color: transparent !important;
+                        @include Transition(background, 0.4s, null, ease-in-out);
+                        &::before, &::after {
+                            top: 0 !important;
+                            @include Transform(center, rotate(45deg));
+                            @include Transition(all, 0.4s, null, ease-in-out);
+                        }
+                        &::after {
+                            @include Transform(center, rotate(-45deg));
+                        }
+                    }
+                }
+            }
+        }
+        .Fixed, .PullOut {
+            position: fixed !important;
+            background-color: black !important;
+            @include Animation(FixedMenu, 0.4s, null, ease-in-out, normal);
+            #Fixer {
+                justify-content: center !important;
+                @include MediaQuery("Tablet-Small", max) {
+                    justify-content: flex-end !important;
+                    width: 96% !important;
+                }
+            }
+            ul {
+                justify-content: space-evenly;
+                width: 100%;
+                li:not(.SubMenu li) {
+                    margin: 0px 0.7vw !important;
+                }
+            }
+        }
+        .PullOut {
+            opacity: 1;
+            height: 100vh !important;
+            @include Transition(all, 0.7s, null, cubic-bezier(0.400, 0.57, 0.67, 1.53));
+            #Fixer {
+                height: 44px !important;
+            }
+                ul {
+                    display: flex !important;
+                    flex-direction: column !important;
+                    justify-content: center !important;
+                    align-items: center !important;
+                    height: 100% !important;
+                    top: 0;
+                    left: 0;
+                    position: absolute;
+                    li {
+                        border-bottom: 1px solid white !important;
+                        margin-top: 9vw !important;
+                        padding-bottom: 3vw !important;
+                        &:hover {
+                            border-left: none !important;
+                        }
+                        a {
+                            font-size: 4vw !important;
+                        }
+                    }
+                    li:last-child {
+                        margin-left: 0 !important;
+                    }
+                    li:first-child {
+                        margin: 0 !important;
+                    }
+                }
+        }
+        .Fixed {
+            #Fixer {
+                height: 50px !important;
+            }
+        }
+    }
+
+/*----------------------------Header--------------------------*/
+    header {
+        width: 91vw;
+        height: 39vw;
+        margin: 0 auto;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        #MainBackground {
+            height: 100%;
+            width: 100%;
+            @include Background("../img/Main.jpg", center, cover, no-repeat);
+            #TitleDarkener {
+                opacity: 0;
+                position: absolute;
+                width: 79vw;
+                height: 12vw;
+                background-color: rgba(0,0,0,0.3);
+                left: 10%;
+                top: 20%;
+            }
+        }
+        h1 {
+            @include Font(RalewayBold, bold, 10vw, null);
+            color: black;
+            background-color: white;
+            mix-blend-mode: screen;
+            position: absolute;
+            top: 20%;
+            margin: 0;
+            padding: 0px 2.25vw;
+            padding-top: 5px;
+            letter-spacing: 0.05em;
+            .Word {
+                display: inline-block;
+                overflow: hidden;
+            }
+        }
+
+        h2 {
+            @include Font(RalewayThin, null, 6vw, null);
+            position: absolute;
+            color: white;
+            top: calc(20% + 10vw);
+            left: 29.4%;
+            text-shadow: -2px -2px 12px black;
+
+            .Clip:nth-child(1), .Clip:nth-child(2) {
+                background-color: rgba(0,0,0,0.7);
+                padding: 0px 2.5vw 0px 1.2vw;
+                display: inline-block;
+                @include ClipPath((0% 0%, 100% 0%, 90% 100%, 0% 100%));
+                .Letter {
+                    display: inline-block;
+                    transform-origin: 0 0;
+                }
+            }
+            .Clip:nth-child(2) {
+                padding: 0px 1.2vw 0px 3.6vw;
+                margin-left: -4.6vw;
+                @include ClipPath((18% 0, 100% 0, 100% 100%, 0% 100%));
+            }
+        }
+    }
+}
+/*----------------------------CustomerWord--------------------------*/
+#CustomerWord {
+    width: 80%;
+    height: 11.5vw;
+    background-color: white;
+    position: relative;
+    left: 50%;
+    top: -23%;
+    margin-left: calc(-80% / 2);
+    &::before, &::after {
+        @include Pseudo("", block, 10px, 50%);
+        position: absolute;
+        top: 50%;
+        z-index: -1;
+        @include Box-Shadow(-7px, -8px, 18px, -4px, rgba(0, 0, 0, 0.7));
+    }
+    &::after {
+        right: 0;
+        @include Box-Shadow(7px, -8px, 18px, -4px, rgba(0, 0, 0, 0.7));
+    }
+    #Target {
+        @include Font(RalewayExtraLight, bold, 2vw, null);
+        color: rgba(114, 114, 114, 1);
+        text-align: center;
+        letter-spacing: 0.1em;
+        margin-top: 3vw;
+        padding-top: 3.3vw;
+        &::before {
+            @include Pseudo("", block, 60%, 1.5px);
+            margin: 0 auto;
+            background-color: rgba(0,0,0,0.2);
+            margin-bottom: 2.5vw;
+        }
+    }
+
+    #ContactButton {
+        display: flex;
+        justify-content: center;
+        margin-top: 4vw;
+        position: relative;
+        user-select: none;
+        svg {
+            position: absolute;
+            @include cursor(pointer);
+            rect {
+                fill: none;
+                stroke: rgba(0,0,0,0.3);
+                stroke-width: 0.3vw;
+                stroke-dasharray: 40vw;
+                @include Transition((stroke-dasharray, stroke-dashoffset), 0.6s, null, ease-in-out);
+            }
+        }
+        a {
+            @include Font(RalewayMedium, bold, 1.6vw, null);
+            color: $GrayColor;
+            letter-spacing: 0.2em;
+            line-height: 4.4vw;
+            @include Transition((transform:0.6s, letter-spacing:0.4s), null, null, ease-in-out);
+            z-index: 1;
+            padding: 0px 3.7% 0px 3.7%;
+            &:hover {
+                @include Transform(null, scale(1.1));
+                @include Transition(transform, 0.6s, null, ease-in-out);
+                color: darken($GrayColor, 15%);
+            }
+            &:hover + svg rect {
+                stroke: rgba(255,0,0,0.6);
+                stroke-dasharray: 11.6vw, 42.3vw;
+                stroke-dashoffset: 31.6vw;
+                @include Transition(all, 0.8s, null, ease-in-out);
+            }
+            &:hover {
+                letter-spacing: 0.3em;
+                @include Transition(all, 0.4s, null, ease-in-out);
+            }
+        }
+    }
+}
+/*----------------------------Main--------------------------*/
+main {
+    position: relative;
+/*----------------------------About Firm--------------------------*/
+    #AboutFirm {
+        width: 70%;
+        margin: 0 auto;
+        margin-top: 6vw;
+        &::after {
+            @include Pseudo("", block, 75%, 1px);
+            background-color: rgba(255, 0, 0, 0.6);
+            margin: 0 auto;
+        }
+        p {
+            text-align: center;
+            @include Font(RalewayExtraLight, bold, 1.3vw, italic);
+            color: #b0adad;
+            letter-spacing: 0.04em;
+            line-height: 1.5;
+            .bold {
+                @include Font(RalewayBold, bold, 1.3vw, italic);
+            }
+        }
+    }
+/*----------------------------Showcase--------------------------*/
+    #Showcase {
+        width: 80%;
+        height: 45vw;
+        display: flex;
+        justify-content: space-between;
+        margin: 0 auto;
+        margin-top: 12vw;
+        .FurnitureRow {
+            display: flex;
+            flex-direction: column;
+            width: 30%;
+            height: 45vw;
+            h3 {
+                @include Font(RalewayBold, bold, 3.1vw, null);
+                color: $GrayColor;
+                margin: 0px 0px 10px 0px;
+                letter-spacing: 0.2em;
+            }
+            .FurnitureCell {
+                height: 30vw;
+                background-color: black;
+            }
+            p {
+                @include Font("RalewayBold", bold, 1.1vw, null);
+                color: $GrayColor;
+                margin-top: 25px;
+                letter-spacing: 0.1em;
+                width: 120%;
+            }
+        }
+
+        .FurnitureRow:nth-child(1) {
+            margin-left: 3vw;
+            h3 {
+                &::before {
+                    @include Pseudo("", null, 2px, 4%);
+                    background-color: rgba(0,0,0,0.3);
+                    position: absolute;
+                    margin: 10px 0px 0px -15px;
+                }
+            }
+            .FurnitureCell {
+                @include Background("../img/Kitchen-1.jpg", center, cover, no-repeat);
+
+                &::before {
+                    @include Pseudo("", block, 1px, 4vw);
+                    background-color: rgba(255,0,0,0.7);
+                    position: relative;
+                    top: 26vw;
+                    left: -1vw;
+                }
+                &::after {
+                    @include Pseudo("", block, 5vw, 1px);
+                    background-color: rgba(0,0,0,0.3);
+                    position: relative;
+                    top: 26.9vw
+                }
+            }
+        }
+        .FurnitureRow:nth-child(2) {
+            margin-right: 3vw;
+            h3 {
+                text-align: right;
+                &::after {
+                    @include Pseudo("", null, 2px, 4%);
+                    background-color: rgba(0,0,0,0.3);
+                    position: absolute;
+                    margin: 10px 0px 0px 15px;
+                }
+            }
+            .FurnitureCell {
+                @include Background("../img/Interior-1.jpg", center, cover, no-repeat);
+
+                &::after {
+                    @include Pseudo("", block, 1px, 4vw);
+                    background-color: rgba(255,0,0,0.7);
+                    position: relative;
+                    top: 26vw;
+                    right: -25vw;
+                }
+                &::before {
+                    @include Pseudo("", block, 4vw, 1px);
+                    background-color: rgba(0,0,0,0.3);
+                    position: relative;
+                    top: 30.9vw;
+                    right: -20vw;
+                }
+            }
+            p {
+                text-align: right;
+                margin-left: -20%;
+            }
+        }
+    }
+/*----------------------------Reviews--------------------------*/
+    #ReviewThumbnail {
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
+        width: 80%;
+        margin-top: 11vw;
+        h3 {
+            @include Font(RalewayBold, bold, 3vw, null);
+            color: $GrayColor;
+            text-align: center;
+            letter-spacing: 0.2em;
+            border-bottom: 1px solid rgba(0,0,0,0.3);
+            padding-bottom: 10px;
+            margin: 0 auto;
+            width: 72%;
+        }
+        #ReviewContainer {
+            display: flex;
+            align-items: center;
+            #ReviewHiddenContainer {
+                width: 90%;
+                margin: 0 auto;
+                overflow: hidden;
+                p.Review {
+                    @include Font(RalewayMedium, bold, 1.2vw, italic);
+                    color: $GrayColor;
+                    text-align: center;
+                    letter-spacing: 0.2em;
+                    line-height: 1.4;
+                    width: 100%;
+                    height: 4em;
+                    position: relative;
+                    overflow: hidden;
+                    user-select: none;
+                    &::after {
+                        @include Pseudo("", null, 50%, 1.2em);
+                        text-align: right;
+                        position: absolute;
+                        bottom: 0;
+                        right: 0;
+                        background: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,1));
+                    }
+                }
+            }
+            svg {
+                @include cursor(pointer);
+                @include Transition((transform:0.3s, fill:0.2s), null, null, ease-in-out);
+                &:first-child {
+                    transform: rotate(180deg);
+                    &:hover {
+                        transform: rotate(180deg) scale(1.2);
+                    }
+                }
+                &:hover {
+                    fill: rgba(255,0,0,0.6);
+                    transform: scale(1.2);
+                    @include Transition((transform:0.3s, fill:0.2s), null, null, ease-in-out);
+                }
+            }
+        }
+        #ReviewButton {
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 1vw;
+            user-select: none;
+            @include cursor(pointer);
+            a {
+                @include Font(RalewayBold, bold, 1.3vw, null);
+                letter-spacing: 0.1em;
+                color: $GrayColor;
+                padding: 1.3vw 3.8vw;
+                z-index: 1;
+                @include Transition((transform:0.4s, letter-spacing:0.3s), null, null, ease-in-out);
+                &:hover {
+                    @include Transform(null, scale(1.1));
+                    @include Transition((transform:0.4s, letter-spacing:0.3s), null, null, ease-in-out);
+                    color: darken($GrayColor, 15%);
+                    letter-spacing: 0.2em;
+                }
+            }
+            svg {
+                position: absolute;
+                @include cursor(pointer);
+                rect {
+                    fill: none;
+                    stroke: rgba(0,0,0,0.3);
+                    stroke-width: 5;
+                    stroke-dasharray: 18vw 4vw;
+                    @include Transition((stroke-dashoffset, stroke), 0.6s, null, ease-in-out);
+                }
+            }
+            a:hover + svg rect {
+                stroke: rgba(255,0,0,0.6);
+                stroke-dashoffset: 22vw;
+                @include Transition(all, 0.6s, null, ease-in-out);
+            }
+        }
+    }
+/*----------------------------Gallery--------------------------*/
+
+    #GallerySection {
+        .Gallery {
+            height: 55vw;
+            margin-top: 15vw;
+            h3 {
+                @include Font(RalewayBold, bold, 4vw, null);
+                color: $GrayColor;
+                letter-spacing: 0.2em;
+                margin: 0px 0px 1.3vw 9.6vw;
+            }
+            .GalleryTable {
+                display: grid;
+                grid-template-rows: auto;
+                .SideButton {
+                    @include cursor(pointer);
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-flow: column;
+                    grid-row: 1;
+                    p {
+                        @include Font(RalewayBold, bold, 1.4vw, null);
+                        color: $GrayColor;
+                        margin: 0;
+                        padding: 15px 1vw;
+                        letter-spacing: 0.5em;
+                        z-index: 1;
+                        text-orientation: sideways;
+                        writing-mode: vertical-rl;
+                        @include Transition(transform, 0.4s, null, ease-in-out);
+                        &:hover {
+                            @include Transform(null, scale(1.02));
+                            @include Transition(transform, 0.4s, null, ease-in-out);
+                            color: darken($GrayColor, 15%);
+                        }
+                    }
+                    svg {
+                        position: absolute;
+                        @include cursor(pointer);
+                        rect {
+                            fill: none;
+                            stroke: rgba(0,0,0,0.3);
+                            stroke-width: 5;
+                            stroke-dasharray: 24vw 4vw;
+                            stroke-dashoffset: -4vw;
+                            @include Transition(stroke-dashoffset, 0.6s, null, ease-in-out);
+                        }
+                    }
+                    p:hover + svg rect {
+                        stroke-dashoffset: 24vw;
+                        @include Transition(all, 0.6s, null, ease-in-out);
+                    }
+                }
+            }
+            .GalleryBlock {
+                display: flex;
+                grid-row: 1;
+                .GalleryCell {
+                    position: relative;
+                    .GalleryImgBlock {
+                        position: relative;
+                        perspective: 1500px;
+                        .GalleryTitle {
+                            @include Font(RalewayBold, bold, 3.4vw, null);
+                            position: absolute;
+                            margin: 0;
+                            letter-spacing: 0.3em;
+                            color: $GrayColor;
+                        }
+                        .GalleryImg {
+                            width: 100%;
+                            height: 100%;
+                            @include Transition(all, 0.2s, null, linear);
+                            @include cursor(pointer);
+                            filter: blur(0px);
+                            @include Box-Shadow(0px, 0px, 11px, -1px, rgba(0,0,0,0.4));
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            svg {
+                                width: 92%;
+                                height: 92%;
+                                g {
+                                    rect {
+                                        stroke: white;
+                                        stroke-width: 2;
+                                    }
+                                    text {
+                                        @include Font(RalewayExtraLight, null, 1.2vw, null);
+                                        fill: white;
+                                        letter-spacing: 0.3vw;
+                                        transform: translate(1%, 98%);
+                                    }
+                                    .KitchenLabel {
+                                        transform: translate(66%, 98%);
+                                    }
+                                }
+                            }
+                        }
+                        .GalleryLabel {
+                            @include Font(RalewayBold, bold, 1.2vw, null);
+                            color: $GrayColor;
+                            letter-spacing: 0.08em;
+                            margin-top: 10px;
+                            width: 60%;
+                        }
+                    }
+                }
+            }
+        }
+        //-------------------------------------------------------------------//
+        .Gallery:nth-child(1) {
+            .GalleryTable {
+                grid-template-columns: 1fr 9fr;
+                .SideButton {
+                    grid-column: 1;
+                }
+                .GalleryCell:nth-child(1) {
+                    .GalleryImgBlock {
+                        width: 45vw;
+                        height: 30vw;
+                        #FWardrobeImg {
+                            @include Background("../img/Wardrobe-1.jpg", null, cover, no-repeat);
+                        }
+                    }
+                }
+                .GalleryCell:nth-child(2) {
+                    .GalleryImgBlock {
+                        width: 47vw;
+                        height: 30vw;
+                        position: absolute;
+                        top: 7vw;
+                        left: -13vw;
+                        .GalleryTitle {
+                            top: -5vw;
+                            right: -1vw;
+                            &::after {
+                                @include Pseudo("", table, 42%, 0.05em);
+                                background-color: rgba(255,0,0,0.7);
+                                float: right;
+                                left: -1vw;
+                                position: relative;
+                            }
+                        }
+                        #SWardrobeImg {
+                            @include Background("../img/Wardrobe-2.jpg", null, cover, no-repeat);
+                        }
+                        .GalleryLabel {
+                            text-align: right;
+                            float: right;
+                        }
+                    }
+                }
+            }
+        }
+        .Gallery:nth-child(2) {
+            h3 {
+                text-align: right;
+                margin: 0px 9vw 1.3vw 0px;
+            }
+            .GalleryTable {
+                grid-template-columns: 9fr 1fr;
+                .SideButton {
+                    grid-column: 2;
+                }
+                .GalleryBlock {
+                    flex-direction: row-reverse;
+                    .GalleryCell:nth-child(1) {
+                        .GalleryImgBlock {
+                            width: 50vw;
+                            height: 31vw;
+                            #SKitchenImg {
+                                @include Background("../img/Kitchen-2.jpg", center, cover, no-repeat);
+                            }
+                        }
+                        .GalleryLabel {
+                            text-align: right;
+                            left: 41%;
+                            position: relative;
+                        }
+                    }
+                    .GalleryCell:nth-child(2) {
+                        .GalleryImgBlock {
+                            width: 45vw;
+                            height: 29vw;
+                            position: absolute;
+                            left: -29vw;
+                            top: 7vw;
+                            .GalleryTitle {
+                                top: -5vw;
+                                &::after {
+                                    @include Pseudo("", table, 42%, 0.05em);
+                                    background-color: rgba(255,0,0,0.7);
+                                }
+                            }
+                            #FKitchenImg {
+                                @include Background("../img/Kitchen-3.jpg", center, cover, no-repeat);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+/*----------------------------Suppliers--------------------------*/
+    #Suppliers
+    {
+        background-color: #2f2f2f;
+        width: 100%;
+        height: 100px;
+        display: flex;
+        align-items: center;
+        box-shadow: 0px 4px 0px 0px rgba(255,0,0,0.8);
+        h3 {
+            @include Font(RalewayBold, bold, 25px, null);
+            color: $GrayColor;
+            letter-spacing: 0.1em;
+            margin: 0;
+            margin-left: 5vw;
+        }
+    }
+
+    #Logo {
+        width: 100%;
+        display: flex;
+        ul {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            li {
+                margin: 1vw 1vw;
+                width: 31%;
+                a {
+                    display: flex;
+                    align-items: center;
+                    flex-direction: column;
+                    .LogoImg{
+                        width: 20vw;
+                        height: 10vw;
+                        @include Transition(filter, 0.2s, null, linear);
+                    }
+                    &:hover > .LogoImg {
+                        filter: brightness(0.5);
+                        @include Transition(filter, 0.2s, null, linear);
+                    }
+                }
+                p {
+                    @include Font("RalewayBold", bold, 1.2vw, null);
+                    color: $GrayColor;
+                    width: 80%;
+                    text-align: center;
+                    margin: 0;
+                    letter-spacing: 0.3em;
+                }
+            }
+        }
+        $Files: ("Trachea", "Blum", "Egger", "Kronospan", "Hettich");
+        @for $i from 1 through 5 {
+            ul li:nth-child(#{$i}) a .LogoImg{
+                @include Background("../img/Logo/"+unquote(nth($Files, $i))+".png", center, contain, no-repeat);
+            }
+        }
+    }
+}
+
+@include Keyframe(FixedMenu) {
+    0% {
+        opacity: 0;
+        top: -50px;
+    }
+    100% {
+        top: 0;
+        opacity: 1;
+    }
+}

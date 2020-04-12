@@ -1,0 +1,212 @@
+#Contact {
+    position: relative;
+    width: 90%;
+    margin: 0 auto;
+    h3 {
+        @include Font(RalewayExtraLight, null, 45px, null);
+        color: $LightBlack;
+        letter-spacing: 0.1em;
+        margin: 4vw 0px 2vw 0px;
+        &::before {
+            @include Pseudo("", block, 5vw, 2px);
+            background-color: $RedColor;
+        }
+    }
+
+    #FormBlock {
+        #ContactInformation {
+            float: left;
+            width: 30%;
+            height: 30vw;
+            background-color: $BlackColor;
+            box-shadow: 10px 10px 0px -3px rgba(255,0,0,0.8);
+            clear: both;
+            .Info {
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                margin: 2vw;
+                svg {
+                    width: 80px;
+                    height: 80px;
+                    fill: white;
+                    &:hover + p {
+                        @include Transform(null, scale(1.1));
+                        @include Transition(transform, 0.2s, null, linear);
+                    }
+                }
+                p {
+                    @include Font(JuraMedium, null, 16px, null);
+                    margin: 0;
+                    margin-top: 1vw;
+                    color: lighten($LightBlack, 40%);
+                    @include Transition(transform, 0.2s, null, linear);
+                    &:hover {
+                        @include Transform(null, scale(1.1));
+                        @include Transition(transform, 0.2s, null, linear);
+                    }
+                    .Hightlight {
+                        font-family: RalewayMedium;
+                        color: rgba(255,0,0,1);
+                    }
+                }
+            }
+        }
+
+        #Inputs {
+            clear: right;
+            form {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                width: 60%;
+                height: 30vw;
+                align-items: center;
+                margin: 0 auto;
+                .ContactBlock
+                {
+                    position: relative;
+                    input[type="text"], input[type="email"], input[type="tel"]  {
+                        @include Font(JuraMedium, bold, 16px, null);
+                        flex-grow: 1;
+                        padding: 1.3vw;
+                        padding-left: 0vw;
+                        border-bottom: 1px solid lighten($LightBlack, 40%);
+                        margin: 0.5vw 2vw 0.5vw 2vw;
+                        &:focus + label {
+                            top: 10px;
+                            font-size: 12px;
+                            @include Transition((top, font-size), 0.3s, null, ease-in-out);
+                        }
+                        &:focus {
+                            border-bottom: 1.5px solid $RedColor;
+                            @include Transition(all, 0.3s, null, ease-in-out);
+                        }
+                    }
+                    label {
+                        @include Font(RalewayExtraLight, bold, 14px, null);
+                        color: lighten($LightBlack, 20%);
+                        position: absolute;
+                        left: 0;
+                        top: 30px;
+                        margin-left: 2vw;
+                        z-index: -1;
+                        border-left: 1.1px solid $RedColor;
+                        padding-left: 5px;
+                        @include Transition((top, font-size), 0.3s, null, ease-in-out);
+                    }
+                }
+                textarea {
+                    @include Font(RalewayBold, null, 1vw, null);
+                    width: 46vw;
+                    height: 5vw;
+                    padding: 5px 0px 0px 0px;
+                    border-bottom: 1px solid lighten($LightBlack, 40%);
+                    outline-style: none;
+                    margin: 0.5vw 2vw 0.5vw 2vw;
+                    &::placeholder {
+                        @include Font(RalewayExtraLight, bold, 14px, null);
+                    }
+                }
+                #SubmitBlock {
+                    margin-left: 2vw;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    position: relative;
+                    padding: 0px 5vw;
+                    span {
+                        @include Font(RalewayBold, null, 15px, null);
+                        color: $GrayColor;
+                        letter-spacing: 0.8vw;
+                    }
+                    svg {
+                        position: absolute;
+                        @include cursor(pointer);
+                        rect {
+                            fill: none;
+                            stroke: rgba(0,0,0,0.3);
+                            stroke-width: 0.3vw;
+                            stroke-dasharray: 20vw 33vw; //9 33
+                            stroke-dashoffset: 29vw; //12
+                            @include Transition((stroke-dasharray, stroke-dashoffset), 0.9s, null, ease-in-out);
+                        }
+                        &:hover > rect {
+                            stroke-dasharray: 51vw 0vw; //9 33
+                            stroke-dashoffset: 0vw; //12
+                            stroke-width: 0.4vw;
+                            @include Transition(all, 0.9s, null, ease-in-out);
+                            stroke: $RedColor;
+                        }
+                        &:hover + span {
+                            font-size: 18px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    #MapLocation {
+        width: 100%;
+        height: 15vw;
+        margin-top: 5vw;
+        display: flex;
+        #LocationInfo {
+            flex-grow: 0;
+            height: 100%;
+            background-color: $LightBlack;
+            .Info {
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                .AddressIcon {
+                    position: relative;
+                    height: 5vw;
+                    svg {
+                        fill: white;
+                        width: 45px;
+                        height: 45px;
+                        padding: 1vw;
+                        border-bottom: 1px solid white;
+                        cursor: pointer;
+                    }
+                    &:hover::after {
+                        @include Pseudo("", null, 0.3vw, 99%);
+                        background-color: $RedColor;
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+                    }
+                    &:hover {
+                        box-shadow: inset 4px -4px 5px -1px rgba(0,0,0,0.4);
+                    }
+                }
+                .AddressIcon:last-child > svg {
+                    border: none;
+                }
+            }
+        }
+        iframe {
+            flex-grow: 1;
+            border: 0;
+            height: 100%;
+        }
+        &::after {
+            @include Pseudo("Ze zastávky Letňany (stanice metra C) autobusem 351 do zastávky Měšice", null, 100%, 2vw);
+            background-color: $BlackColor;
+            bottom: -2vw;
+            position: absolute;
+            color: white;
+            @include Font(RalewayMedium, null, 15px, null);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            letter-spacing: 0.1vw;
+        }
+    }
+}
+
+#ContactFooter {
+    float: left;
+    margin-top: 5vw;
+}

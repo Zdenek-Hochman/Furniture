@@ -1,0 +1,30 @@
+#Realization {
+    width: 90%;
+    margin: 0 auto;
+    position: relative;
+    h3 {
+        @include Font(RalewayExtraLight, null, 45px, null);
+        color: $LightBlack;
+        letter-spacing: 0.1em;
+        margin: 4vw 0 0 0;
+        &::before {
+            @include Pseudo("", block, 5vw, 2px);
+            background-color: $RedColor;
+        }
+    }
+    section {
+        width: 60%;
+        height: 10vw;
+        background-color: blue;
+        position: relative;
+        h4 {
+            @include Font(RalewayBold, null, 15px, null);
+            letter-spacing: 0.2vw;
+            transform: rotate(-90deg);
+            transform-origin: left;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    }
+}

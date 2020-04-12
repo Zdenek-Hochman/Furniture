@@ -1,0 +1,1840 @@
+@charset "UTF-8";
+/* Reset file to null styles */
+html, body, div, form, fieldset, legend, label {
+  margin: 0;
+  padding: 0; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+th, td {
+  text-align: left;
+  vertical-align: top; }
+
+h1, h2, h3, h4, h5, h6, th, td, caption {
+  font-weight: normal; }
+
+img {
+  border: 0; }
+
+input, label, select, button, textarea {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  display: inline-block;
+  vertical-align: middle;
+  white-space: normal;
+  background: none;
+  line-height: 1;
+  font-size: 13px;
+  font-family: Arial; }
+
+a {
+  text-decoration: none;
+  color: white; }
+
+input:focus {
+  outline: 0; }
+
+button, input[type="reset"], input[type="button"], input[type="submit"] {
+  overflow: visible;
+  width: auto; }
+
+::-webkit-file-upload-button {
+  padding: 0;
+  border: 0;
+  background: none; }
+
+li {
+  list-style-type: none; }
+
+.FadeIn {
+  opacity: 0;
+  top: 0; }
+
+.FadeOut {
+  opacity: 0;
+  top: -5vw; }
+
+/* Mixin file to create function and others */
+/* Parts of repeateble styles  */
+@font-face {
+  font-family: RalewayThin;
+  src: url("../fonts/Raleway_Thin.woff2"), url("../fonts/Raleway_Thin.woff"); }
+@font-face {
+  font-family: RalewayExtraLight;
+  src: url("../fonts/Raleway_ExtraLight.woff2"), url("../fonts/Raleway_ExtraLight.woff"); }
+@font-face {
+  font-family: RalewayMedium;
+  src: url("../fonts/Raleway_Medium.woff2"), url("../fonts/Raleway_Medium.woff"); }
+@font-face {
+  font-family: RalewayBold;
+  src: url("../fonts/Raleway_Bold.woff2"), url("../fonts/Raleway_Bold.woff"); }
+@font-face {
+  font-family: JuraMedium;
+  src: url("../fonts/Jura_Medium.woff2"), url("../fonts/Jura_Medium.woff"); }
+nav#BasicMenu {
+  width: 100%;
+  display: flex;
+  background-color: #222222; }
+  nav#BasicMenu #Menu {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around; }
+    nav#BasicMenu #Menu #Logo p {
+      display: grid;
+      grid-template: auto auto / 1fr 1fr 5fr;
+      color: white;
+      margin: 10px 0px 10px 10px;
+      white-space: nowrap;
+      font-family: RalewayBold;
+      font-size: 1.7vw; }
+      nav#BasicMenu #Menu #Logo p span:nth-child(1) {
+        grid-column: 1;
+        grid-column-end: 4; }
+      nav#BasicMenu #Menu #Logo p span:nth-child(2) {
+        font-family: RalewayExtraLight;
+        grid-column-end: 4; }
+    nav#BasicMenu #Menu ul {
+      display: flex; }
+      nav#BasicMenu #Menu ul li {
+        font-family: RalewayThin;
+        font-weight: bold;
+        font-size: 0.9vw;
+        letter-spacing: 0.07em;
+        user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        margin: 0px 2.2vw;
+        white-space: nowrap; }
+
+.Reverse {
+  background-color: white !important; }
+  .Reverse p {
+    color: #4A4848 !important; }
+  .Reverse li {
+    font-weight: normal !important;
+    font-family: RalewayMedium !important; }
+    .Reverse li a {
+      color: #4A4848 !important; }
+
+footer {
+  position: relative;
+  width: 100%;
+  height: auto;
+  background-color: #2f2f2f;
+  /*----------------------------Contact--------------------------*/ }
+  footer #FooterLogo p {
+    font-family: "RalewayBold";
+    font-weight: bold;
+    font-size: 3vw;
+    color: white;
+    text-align: center;
+    letter-spacing: 0.2em;
+    margin: 0; }
+  footer #FooterLogo p:nth-child(1) {
+    font-family: "RalewayThin";
+    padding: 30px 0px 5px 0px; }
+  footer #FooterLogo p:nth-child(2)::after {
+    content: "";
+    display: block;
+    width: 60%;
+    height: 2px;
+    background-color: rgba(255, 30, 30, 0.8);
+    margin: 0 auto;
+    margin-top: 25px; }
+  footer #FooterContact {
+    width: 100%;
+    height: 200px; }
+    footer #FooterContact .FooterSide {
+      width: 50%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end; }
+      footer #FooterContact .FooterSide p {
+        margin: 0;
+        color: white; }
+    footer #FooterContact #LeftSide {
+      float: left; }
+      footer #FooterContact #LeftSide #FooterTel, footer #FooterContact #LeftSide #FooterEmail {
+        margin-left: 1vw; }
+        footer #FooterContact #LeftSide #FooterTel p:nth-child(1), footer #FooterContact #LeftSide #FooterEmail p:nth-child(1) {
+          font-family: "RalewayThin";
+          font-weight: bold;
+          font-size: 0.9vw; }
+        footer #FooterContact #LeftSide #FooterTel p:nth-child(2), footer #FooterContact #LeftSide #FooterEmail p:nth-child(2) {
+          text-decoration: none;
+          color: white;
+          margin-bottom: 1.5vw;
+          font-family: "JuraMedium";
+          font-weight: bold;
+          font-size: 1.1vw; }
+    footer #FooterContact #RightSide {
+      float: right; }
+      footer #FooterContact #RightSide #FooterCreated, footer #FooterContact #RightSide #FooterCreatedEmail {
+        margin-right: 1vw; }
+        footer #FooterContact #RightSide #FooterCreated p:nth-child(1), footer #FooterContact #RightSide #FooterCreatedEmail p:nth-child(1) {
+          text-align: right;
+          font-family: "RalewayThin";
+          font-weight: bold;
+          font-size: 0.9vw; }
+        footer #FooterContact #RightSide #FooterCreated p:nth-child(2), footer #FooterContact #RightSide #FooterCreatedEmail p:nth-child(2) {
+          text-align: right;
+          margin-bottom: 1.5vw;
+          font-family: "JuraMedium";
+          font-weight: bold;
+          font-size: 1.1vw; }
+
+/* Styles of specific sites */
+/*----------------------------Background--------------------------*/
+#Background {
+  width: 100%;
+  height: 36.8vw;
+  display: inline-block;
+  position: relative;
+  background: black;
+  background: -moz-linear-gradient(top, black 18%, #2f2f2f 100%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(18%, black), color-stop(100%, #2f2f2f));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, black 18%, #2f2f2f 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, black 18%, #2f2f2f 100%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, black 18%, #2f2f2f 100%);
+  /* IE10+ */
+  background: linear-gradient(to bottom, black 18%, #2f2f2f 100%);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#000000',GradientType=0 );
+  /* IE6-9 */
+  /*----------------------------Navigation--------------------------*/
+  /*----------------------------Header--------------------------*/ }
+  #Background #Information {
+    font-family: RalewayMedium;
+    font-weight: bold;
+    font-size: 1vw;
+    position: absolute;
+    right: 1.5%;
+    bottom: -11.5%;
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    transform: rotate(90deg);
+    -webkit-transform-origin: right;
+    -moz-transform-origin: right;
+    -ms-transform-origin: right;
+    -o-transform-origin: right;
+    transform-origin: right;
+    margin: 0;
+    letter-spacing: 0.2em;
+    height: 0; }
+    #Background #Information span:nth-child(1) {
+      color: white; }
+    #Background #Information::after {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 2px;
+      background-color: rgba(255, 0, 0, 0.7);
+      position: relative;
+      left: 2.3vw;
+      margin-top: 0.35vw; }
+  #Background nav#IndexMenu {
+    width: 96%;
+    height: 40px;
+    margin: 0.3vw 0px 0.3vw 0px;
+    z-index: 2;
+    display: flex;
+    position: relative;
+    align-items: center; }
+    #Background nav#IndexMenu #Menu {
+      width: 100%;
+      height: 50px;
+      top: 0;
+      position: relative; }
+      #Background nav#IndexMenu #Menu #Fixer {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        height: 50px; }
+        #Background nav#IndexMenu #Menu #Fixer ul {
+          display: flex;
+          padding: 0; }
+          @media only screen and (max-width: 640px) {
+            #Background nav#IndexMenu #Menu #Fixer ul {
+              display: none; } }
+          #Background nav#IndexMenu #Menu #Fixer ul li.MainHeader {
+            margin: 0px 10px;
+            padding: 0;
+            border: none;
+            -webkit-transition: padding 0.2s, transform 0.2s, border 0.2s linear;
+            -moz-transition: padding 0.2s, transform 0.2s, border 0.2s linear;
+            -ms-transition: padding 0.2s, transform 0.2s, border 0.2s linear;
+            -o-transition: padding 0.2s, transform 0.2s, border 0.2s linear;
+            transition: padding 0.2s, transform 0.2s, border 0.2s linear;
+            cursor: pointer;
+            cursor: -moz-pointer;
+            cursor: -o-pointer; }
+            #Background nav#IndexMenu #Menu #Fixer ul li.MainHeader:hover {
+              -webkit-transform: scale(1.1);
+              -moz-transform: scale(1.1);
+              -ms-transform: scale(1.1);
+              -o-transform: scale(1.1);
+              transform: scale(1.1);
+              border-left: 2.1px solid rgba(255, 0, 0, 0.6);
+              padding-left: 5px;
+              -webkit-transition: all 0.2s linear;
+              -moz-transition: all 0.2s linear;
+              -ms-transition: all 0.2s linear;
+              -o-transition: all 0.2s linear;
+              transition: all 0.2s linear; }
+            #Background nav#IndexMenu #Menu #Fixer ul li.MainHeader a {
+              font-family: RalewayMedium;
+              font-size: 15px;
+              letter-spacing: 0.07em;
+              user-select: none;
+              -webkit-user-select: none;
+              -ms-user-select: none;
+              -khtml-user-select: none;
+              -moz-user-select: none; }
+            #Background nav#IndexMenu #Menu #Fixer ul li.MainHeader ul.SubMenu {
+              position: absolute;
+              background-color: black;
+              flex-direction: column;
+              align-items: flex-start;
+              margin-left: -0.4vw;
+              width: 10vw;
+              display: none !important; }
+              #Background nav#IndexMenu #Menu #Fixer ul li.MainHeader ul.SubMenu li {
+                border-bottom: 2px solid white;
+                display: inline-flex;
+                padding: 0.5vw 0px;
+                width: 95%; }
+                #Background nav#IndexMenu #Menu #Fixer ul li.MainHeader ul.SubMenu li a {
+                  font-size: 13px; }
+            #Background nav#IndexMenu #Menu #Fixer ul li.MainHeader ul.SubSubMenu {
+              left: 100%;
+              margin: -0.5vw 0px 0px 0px; }
+          #Background nav#IndexMenu #Menu #Fixer ul li:last-child {
+            margin-right: 0; }
+        @media only screen and (max-width: 640px) {
+          #Background nav#IndexMenu #Menu #Fixer #MobileMenu {
+            height: 30px;
+            width: 30px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            cursor: pointer;
+            cursor: -moz-pointer;
+            cursor: -o-pointer;
+            z-index: 1; }
+            #Background nav#IndexMenu #Menu #Fixer #MobileMenu span {
+              background-color: white;
+              height: 1.5px;
+              display: grid;
+              -webkit-transition: background 0.4s ease-in-out;
+              -moz-transition: background 0.4s ease-in-out;
+              -ms-transition: background 0.4s ease-in-out;
+              -o-transition: background 0.4s ease-in-out;
+              transition: background 0.4s ease-in-out; }
+              #Background nav#IndexMenu #Menu #Fixer #MobileMenu span::after, #Background nav#IndexMenu #Menu #Fixer #MobileMenu span::before {
+                content: "";
+                display: table;
+                width: 100%;
+                height: 2px;
+                background-color: white;
+                position: relative;
+                top: -8px;
+                -webkit-transition: all 0.4s ease-in-out;
+                -moz-transition: all 0.4s ease-in-out;
+                -ms-transition: all 0.4s ease-in-out;
+                -o-transition: all 0.4s ease-in-out;
+                transition: all 0.4s ease-in-out; }
+              #Background nav#IndexMenu #Menu #Fixer #MobileMenu span::after {
+                top: 7px; } }
+        #Background nav#IndexMenu #Menu #Fixer .Open span {
+          background-color: transparent !important;
+          -webkit-transition: background 0.4s ease-in-out;
+          -moz-transition: background 0.4s ease-in-out;
+          -ms-transition: background 0.4s ease-in-out;
+          -o-transition: background 0.4s ease-in-out;
+          transition: background 0.4s ease-in-out; }
+          #Background nav#IndexMenu #Menu #Fixer .Open span::before, #Background nav#IndexMenu #Menu #Fixer .Open span::after {
+            top: 0 !important;
+            -webkit-transform: rotate(45deg);
+            -moz-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            -o-transform: rotate(45deg);
+            transform: rotate(45deg);
+            -webkit-transform-origin: center;
+            -moz-transform-origin: center;
+            -ms-transform-origin: center;
+            -o-transform-origin: center;
+            transform-origin: center;
+            -webkit-transition: all 0.4s ease-in-out;
+            -moz-transition: all 0.4s ease-in-out;
+            -ms-transition: all 0.4s ease-in-out;
+            -o-transition: all 0.4s ease-in-out;
+            transition: all 0.4s ease-in-out; }
+          #Background nav#IndexMenu #Menu #Fixer .Open span::after {
+            -webkit-transform: rotate(-45deg);
+            -moz-transform: rotate(-45deg);
+            -ms-transform: rotate(-45deg);
+            -o-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+            -webkit-transform-origin: center;
+            -moz-transform-origin: center;
+            -ms-transform-origin: center;
+            -o-transform-origin: center;
+            transform-origin: center; }
+    #Background nav#IndexMenu .Fixed, #Background nav#IndexMenu .PullOut {
+      position: fixed !important;
+      background-color: black !important;
+      animation-name: FixedMenu;
+      animation-duration: 0.4s;
+      animation-fill-mode: forwards;
+      animation-timing-function: ease-in-out;
+      animation-direction: normal;
+      -webkit-animation-name: FixedMenu;
+      -webkit-animation-duration: 0.4s;
+      -webkit-animation-fill-mode: forwards;
+      -webkit-animation-timing-function: ease-in-out;
+      -webkit-animation-direction: normal;
+      -moz-animation-name: FixedMenu;
+      -moz-animation-duration: 0.4s;
+      -moz-animation-fill-mode: forwards;
+      -moz-animation-timing-function: ease-in-out;
+      -moz-animation-direction: normal; }
+      #Background nav#IndexMenu .Fixed #Fixer, #Background nav#IndexMenu .PullOut #Fixer {
+        justify-content: center !important; }
+        @media only screen and (max-width: 640px) {
+          #Background nav#IndexMenu .Fixed #Fixer, #Background nav#IndexMenu .PullOut #Fixer {
+            justify-content: flex-end !important;
+            width: 96% !important; } }
+      #Background nav#IndexMenu .Fixed ul, #Background nav#IndexMenu .PullOut ul {
+        justify-content: space-evenly;
+        width: 100%; }
+        #Background nav#IndexMenu .Fixed ul li:not(.SubMenu li), #Background nav#IndexMenu .PullOut ul li:not(.SubMenu li) {
+          margin: 0px 0.7vw !important; }
+    #Background nav#IndexMenu .PullOut {
+      opacity: 1;
+      height: 100vh !important;
+      -webkit-transition: all 0.7s cubic-bezier(0.4, 0.57, 0.67, 1.53);
+      -moz-transition: all 0.7s cubic-bezier(0.4, 0.57, 0.67, 1.53);
+      -ms-transition: all 0.7s cubic-bezier(0.4, 0.57, 0.67, 1.53);
+      -o-transition: all 0.7s cubic-bezier(0.4, 0.57, 0.67, 1.53);
+      transition: all 0.7s cubic-bezier(0.4, 0.57, 0.67, 1.53); }
+      #Background nav#IndexMenu .PullOut #Fixer {
+        height: 44px !important; }
+      #Background nav#IndexMenu .PullOut ul {
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+        height: 100% !important;
+        top: 0;
+        left: 0;
+        position: absolute; }
+        #Background nav#IndexMenu .PullOut ul li {
+          border-bottom: 1px solid white !important;
+          margin-top: 9vw !important;
+          padding-bottom: 3vw !important; }
+          #Background nav#IndexMenu .PullOut ul li:hover {
+            border-left: none !important; }
+          #Background nav#IndexMenu .PullOut ul li a {
+            font-size: 4vw !important; }
+        #Background nav#IndexMenu .PullOut ul li:last-child {
+          margin-left: 0 !important; }
+        #Background nav#IndexMenu .PullOut ul li:first-child {
+          margin: 0 !important; }
+    #Background nav#IndexMenu .Fixed #Fixer {
+      height: 50px !important; }
+  #Background header {
+    width: 91vw;
+    height: 39vw;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    justify-content: center; }
+    #Background header #MainBackground {
+      height: 100%;
+      width: 100%;
+      background-image: url("../img/Main.jpg");
+      background-size: cover;
+      background-repeat: no-repeat; }
+      #Background header #MainBackground else {
+        background-position: center; }
+      #Background header #MainBackground #TitleDarkener {
+        opacity: 0;
+        position: absolute;
+        width: 79vw;
+        height: 12vw;
+        background-color: rgba(0, 0, 0, 0.3);
+        left: 10%;
+        top: 20%; }
+    #Background header h1 {
+      font-family: RalewayBold;
+      font-weight: bold;
+      font-size: 10vw;
+      color: black;
+      background-color: white;
+      mix-blend-mode: screen;
+      position: absolute;
+      top: 20%;
+      margin: 0;
+      padding: 0px 2.25vw;
+      padding-top: 5px;
+      letter-spacing: 0.05em; }
+      #Background header h1 .Word {
+        display: inline-block;
+        overflow: hidden; }
+    #Background header h2 {
+      font-family: RalewayThin;
+      font-size: 6vw;
+      position: absolute;
+      color: white;
+      top: calc(20% + 10vw);
+      left: 29.4%;
+      text-shadow: -2px -2px 12px black; }
+      #Background header h2 .Clip:nth-child(1), #Background header h2 .Clip:nth-child(2) {
+        background-color: rgba(0, 0, 0, 0.7);
+        padding: 0px 2.5vw 0px 1.2vw;
+        display: inline-block;
+        -webkit-clip-path: polygon(0% 0%, 100% 0%, 90% 100%, 0% 100%);
+        clip-path: polygon(0% 0%, 100% 0%, 90% 100%, 0% 100%); }
+        #Background header h2 .Clip:nth-child(1) .Letter, #Background header h2 .Clip:nth-child(2) .Letter {
+          display: inline-block;
+          transform-origin: 0 0; }
+      #Background header h2 .Clip:nth-child(2) {
+        padding: 0px 1.2vw 0px 3.6vw;
+        margin-left: -4.6vw;
+        -webkit-clip-path: polygon(18% 0, 100% 0, 100% 100%, 0% 100%);
+        clip-path: polygon(18% 0, 100% 0, 100% 100%, 0% 100%); }
+
+/*----------------------------CustomerWord--------------------------*/
+#CustomerWord {
+  width: 80%;
+  height: 11.5vw;
+  background-color: white;
+  position: relative;
+  left: 50%;
+  top: -23%;
+  margin-left: calc(-80% / 2); }
+  #CustomerWord::before, #CustomerWord::after {
+    content: "";
+    display: block;
+    width: 10px;
+    height: 50%;
+    position: absolute;
+    top: 50%;
+    z-index: -1;
+    -webkit-box-shadow: -7px -8px 18px -4px rgba(0, 0, 0, 0.7);
+    -moz-box-shadow: -7px -8px 18px -4px rgba(0, 0, 0, 0.7);
+    box-shadow: -7px -8px 18px -4px rgba(0, 0, 0, 0.7); }
+  #CustomerWord::after {
+    right: 0;
+    -webkit-box-shadow: 7px -8px 18px -4px rgba(0, 0, 0, 0.7);
+    -moz-box-shadow: 7px -8px 18px -4px rgba(0, 0, 0, 0.7);
+    box-shadow: 7px -8px 18px -4px rgba(0, 0, 0, 0.7); }
+  #CustomerWord #Target {
+    font-family: RalewayExtraLight;
+    font-weight: bold;
+    font-size: 2vw;
+    color: #727272;
+    text-align: center;
+    letter-spacing: 0.1em;
+    margin-top: 3vw;
+    padding-top: 3.3vw; }
+    #CustomerWord #Target::before {
+      content: "";
+      display: block;
+      width: 60%;
+      height: 1.5px;
+      margin: 0 auto;
+      background-color: rgba(0, 0, 0, 0.2);
+      margin-bottom: 2.5vw; }
+  #CustomerWord #ContactButton {
+    display: flex;
+    justify-content: center;
+    margin-top: 4vw;
+    position: relative;
+    user-select: none; }
+    #CustomerWord #ContactButton svg {
+      position: absolute;
+      cursor: pointer;
+      cursor: -moz-pointer;
+      cursor: -o-pointer; }
+      #CustomerWord #ContactButton svg rect {
+        fill: none;
+        stroke: rgba(0, 0, 0, 0.3);
+        stroke-width: 0.3vw;
+        stroke-dasharray: 40vw;
+        -webkit-transition: stroke-dasharray 0.6s, stroke-dashoffset 0.6s ease-in-out;
+        -moz-transition: stroke-dasharray 0.6s, stroke-dashoffset 0.6s ease-in-out;
+        -ms-transition: stroke-dasharray 0.6s, stroke-dashoffset 0.6s ease-in-out;
+        -o-transition: stroke-dasharray 0.6s, stroke-dashoffset 0.6s ease-in-out;
+        transition: stroke-dasharray 0.6s, stroke-dashoffset 0.6s ease-in-out; }
+    #CustomerWord #ContactButton a {
+      font-family: RalewayMedium;
+      font-weight: bold;
+      font-size: 1.6vw;
+      color: #b6b6b6;
+      letter-spacing: 0.2em;
+      line-height: 4.4vw;
+      -webkit-transition:  transform 0.6s, letter-spacing 0.4s ease-in-out;
+      -moz-transition:  transform 0.6s, letter-spacing 0.4s ease-in-out;
+      -ms-transition:  transform 0.6s, letter-spacing 0.4s ease-in-out;
+      -o-transition:  transform 0.6s, letter-spacing 0.4s ease-in-out;
+      transition:  transform 0.6s, letter-spacing 0.4s ease-in-out;
+      z-index: 1;
+      padding: 0px 3.7% 0px 3.7%; }
+      #CustomerWord #ContactButton a:hover {
+        -webkit-transform: scale(1.1);
+        -moz-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+        -o-transform: scale(1.1);
+        transform: scale(1.1);
+        -webkit-transition: transform 0.6s ease-in-out;
+        -moz-transition: transform 0.6s ease-in-out;
+        -ms-transition: transform 0.6s ease-in-out;
+        -o-transition: transform 0.6s ease-in-out;
+        transition: transform 0.6s ease-in-out;
+        color: #909090; }
+      #CustomerWord #ContactButton a:hover + svg rect {
+        stroke: rgba(255, 0, 0, 0.6);
+        stroke-dasharray: 11.6vw, 42.3vw;
+        stroke-dashoffset: 31.6vw;
+        -webkit-transition: all 0.8s ease-in-out;
+        -moz-transition: all 0.8s ease-in-out;
+        -ms-transition: all 0.8s ease-in-out;
+        -o-transition: all 0.8s ease-in-out;
+        transition: all 0.8s ease-in-out; }
+      #CustomerWord #ContactButton a:hover {
+        letter-spacing: 0.3em;
+        -webkit-transition: all 0.4s ease-in-out;
+        -moz-transition: all 0.4s ease-in-out;
+        -ms-transition: all 0.4s ease-in-out;
+        -o-transition: all 0.4s ease-in-out;
+        transition: all 0.4s ease-in-out; }
+
+/*----------------------------Main--------------------------*/
+main {
+  position: relative;
+  /*----------------------------About Firm--------------------------*/
+  /*----------------------------Showcase--------------------------*/
+  /*----------------------------Reviews--------------------------*/
+  /*----------------------------Gallery--------------------------*/
+  /*----------------------------Suppliers--------------------------*/ }
+  main #AboutFirm {
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 6vw; }
+    main #AboutFirm::after {
+      content: "";
+      display: block;
+      width: 75%;
+      height: 1px;
+      background-color: rgba(255, 0, 0, 0.6);
+      margin: 0 auto; }
+    main #AboutFirm p {
+      text-align: center;
+      font-family: RalewayExtraLight;
+      font-weight: bold;
+      font-size: 1.3vw;
+      font-style: italic;
+      color: #b0adad;
+      letter-spacing: 0.04em;
+      line-height: 1.5; }
+      main #AboutFirm p .bold {
+        font-family: RalewayBold;
+        font-weight: bold;
+        font-size: 1.3vw;
+        font-style: italic; }
+  main #Showcase {
+    width: 80%;
+    height: 45vw;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    margin-top: 12vw; }
+    main #Showcase .FurnitureRow {
+      display: flex;
+      flex-direction: column;
+      width: 30%;
+      height: 45vw; }
+      main #Showcase .FurnitureRow h3 {
+        font-family: RalewayBold;
+        font-weight: bold;
+        font-size: 3.1vw;
+        color: #b6b6b6;
+        margin: 0px 0px 10px 0px;
+        letter-spacing: 0.2em; }
+      main #Showcase .FurnitureRow .FurnitureCell {
+        height: 30vw;
+        background-color: black; }
+      main #Showcase .FurnitureRow p {
+        font-family: "RalewayBold";
+        font-weight: bold;
+        font-size: 1.1vw;
+        color: #b6b6b6;
+        margin-top: 25px;
+        letter-spacing: 0.1em;
+        width: 120%; }
+    main #Showcase .FurnitureRow:nth-child(1) {
+      margin-left: 3vw; }
+      main #Showcase .FurnitureRow:nth-child(1) h3::before {
+        content: "";
+        width: 2px;
+        height: 4%;
+        background-color: rgba(0, 0, 0, 0.3);
+        position: absolute;
+        margin: 10px 0px 0px -15px; }
+      main #Showcase .FurnitureRow:nth-child(1) .FurnitureCell {
+        background-image: url("../img/Kitchen-1.jpg");
+        background-size: cover;
+        background-repeat: no-repeat; }
+        main #Showcase .FurnitureRow:nth-child(1) .FurnitureCell else {
+          background-position: center; }
+        main #Showcase .FurnitureRow:nth-child(1) .FurnitureCell::before {
+          content: "";
+          display: block;
+          width: 1px;
+          height: 4vw;
+          background-color: rgba(255, 0, 0, 0.7);
+          position: relative;
+          top: 26vw;
+          left: -1vw; }
+        main #Showcase .FurnitureRow:nth-child(1) .FurnitureCell::after {
+          content: "";
+          display: block;
+          width: 5vw;
+          height: 1px;
+          background-color: rgba(0, 0, 0, 0.3);
+          position: relative;
+          top: 26.9vw; }
+    main #Showcase .FurnitureRow:nth-child(2) {
+      margin-right: 3vw; }
+      main #Showcase .FurnitureRow:nth-child(2) h3 {
+        text-align: right; }
+        main #Showcase .FurnitureRow:nth-child(2) h3::after {
+          content: "";
+          width: 2px;
+          height: 4%;
+          background-color: rgba(0, 0, 0, 0.3);
+          position: absolute;
+          margin: 10px 0px 0px 15px; }
+      main #Showcase .FurnitureRow:nth-child(2) .FurnitureCell {
+        background-image: url("../img/Interior-1.jpg");
+        background-size: cover;
+        background-repeat: no-repeat; }
+        main #Showcase .FurnitureRow:nth-child(2) .FurnitureCell else {
+          background-position: center; }
+        main #Showcase .FurnitureRow:nth-child(2) .FurnitureCell::after {
+          content: "";
+          display: block;
+          width: 1px;
+          height: 4vw;
+          background-color: rgba(255, 0, 0, 0.7);
+          position: relative;
+          top: 26vw;
+          right: -25vw; }
+        main #Showcase .FurnitureRow:nth-child(2) .FurnitureCell::before {
+          content: "";
+          display: block;
+          width: 4vw;
+          height: 1px;
+          background-color: rgba(0, 0, 0, 0.3);
+          position: relative;
+          top: 30.9vw;
+          right: -20vw; }
+      main #Showcase .FurnitureRow:nth-child(2) p {
+        text-align: right;
+        margin-left: -20%; }
+  main #ReviewThumbnail {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 80%;
+    margin-top: 11vw; }
+    main #ReviewThumbnail h3 {
+      font-family: RalewayBold;
+      font-weight: bold;
+      font-size: 3vw;
+      color: #b6b6b6;
+      text-align: center;
+      letter-spacing: 0.2em;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+      padding-bottom: 10px;
+      margin: 0 auto;
+      width: 72%; }
+    main #ReviewThumbnail #ReviewContainer {
+      display: flex;
+      align-items: center; }
+      main #ReviewThumbnail #ReviewContainer #ReviewHiddenContainer {
+        width: 90%;
+        margin: 0 auto;
+        overflow: hidden; }
+        main #ReviewThumbnail #ReviewContainer #ReviewHiddenContainer p.Review {
+          font-family: RalewayMedium;
+          font-weight: bold;
+          font-size: 1.2vw;
+          font-style: italic;
+          color: #b6b6b6;
+          text-align: center;
+          letter-spacing: 0.2em;
+          line-height: 1.4;
+          width: 100%;
+          height: 4em;
+          position: relative;
+          overflow: hidden;
+          user-select: none; }
+          main #ReviewThumbnail #ReviewContainer #ReviewHiddenContainer p.Review::after {
+            content: "";
+            width: 50%;
+            height: 1.2em;
+            text-align: right;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            background: linear-gradient(to right, rgba(255, 255, 255, 0), white); }
+      main #ReviewThumbnail #ReviewContainer svg {
+        cursor: pointer;
+        cursor: -moz-pointer;
+        cursor: -o-pointer;
+        -webkit-transition:  transform 0.3s, fill 0.2s ease-in-out;
+        -moz-transition:  transform 0.3s, fill 0.2s ease-in-out;
+        -ms-transition:  transform 0.3s, fill 0.2s ease-in-out;
+        -o-transition:  transform 0.3s, fill 0.2s ease-in-out;
+        transition:  transform 0.3s, fill 0.2s ease-in-out; }
+        main #ReviewThumbnail #ReviewContainer svg:first-child {
+          transform: rotate(180deg); }
+          main #ReviewThumbnail #ReviewContainer svg:first-child:hover {
+            transform: rotate(180deg) scale(1.2); }
+        main #ReviewThumbnail #ReviewContainer svg:hover {
+          fill: rgba(255, 0, 0, 0.6);
+          transform: scale(1.2);
+          -webkit-transition:  transform 0.3s, fill 0.2s ease-in-out;
+          -moz-transition:  transform 0.3s, fill 0.2s ease-in-out;
+          -ms-transition:  transform 0.3s, fill 0.2s ease-in-out;
+          -o-transition:  transform 0.3s, fill 0.2s ease-in-out;
+          transition:  transform 0.3s, fill 0.2s ease-in-out; }
+    main #ReviewThumbnail #ReviewButton {
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 1vw;
+      user-select: none;
+      cursor: pointer;
+      cursor: -moz-pointer;
+      cursor: -o-pointer; }
+      main #ReviewThumbnail #ReviewButton a {
+        font-family: RalewayBold;
+        font-weight: bold;
+        font-size: 1.3vw;
+        letter-spacing: 0.1em;
+        color: #b6b6b6;
+        padding: 1.3vw 3.8vw;
+        z-index: 1;
+        -webkit-transition:  transform 0.4s, letter-spacing 0.3s ease-in-out;
+        -moz-transition:  transform 0.4s, letter-spacing 0.3s ease-in-out;
+        -ms-transition:  transform 0.4s, letter-spacing 0.3s ease-in-out;
+        -o-transition:  transform 0.4s, letter-spacing 0.3s ease-in-out;
+        transition:  transform 0.4s, letter-spacing 0.3s ease-in-out; }
+        main #ReviewThumbnail #ReviewButton a:hover {
+          -webkit-transform: scale(1.1);
+          -moz-transform: scale(1.1);
+          -ms-transform: scale(1.1);
+          -o-transform: scale(1.1);
+          transform: scale(1.1);
+          -webkit-transition:  transform 0.4s, letter-spacing 0.3s ease-in-out;
+          -moz-transition:  transform 0.4s, letter-spacing 0.3s ease-in-out;
+          -ms-transition:  transform 0.4s, letter-spacing 0.3s ease-in-out;
+          -o-transition:  transform 0.4s, letter-spacing 0.3s ease-in-out;
+          transition:  transform 0.4s, letter-spacing 0.3s ease-in-out;
+          color: #909090;
+          letter-spacing: 0.2em; }
+      main #ReviewThumbnail #ReviewButton svg {
+        position: absolute;
+        cursor: pointer;
+        cursor: -moz-pointer;
+        cursor: -o-pointer; }
+        main #ReviewThumbnail #ReviewButton svg rect {
+          fill: none;
+          stroke: rgba(0, 0, 0, 0.3);
+          stroke-width: 5;
+          stroke-dasharray: 18vw 4vw;
+          -webkit-transition: stroke-dashoffset 0.6s, stroke 0.6s ease-in-out;
+          -moz-transition: stroke-dashoffset 0.6s, stroke 0.6s ease-in-out;
+          -ms-transition: stroke-dashoffset 0.6s, stroke 0.6s ease-in-out;
+          -o-transition: stroke-dashoffset 0.6s, stroke 0.6s ease-in-out;
+          transition: stroke-dashoffset 0.6s, stroke 0.6s ease-in-out; }
+      main #ReviewThumbnail #ReviewButton a:hover + svg rect {
+        stroke: rgba(255, 0, 0, 0.6);
+        stroke-dashoffset: 22vw;
+        -webkit-transition: all 0.6s ease-in-out;
+        -moz-transition: all 0.6s ease-in-out;
+        -ms-transition: all 0.6s ease-in-out;
+        -o-transition: all 0.6s ease-in-out;
+        transition: all 0.6s ease-in-out; }
+  main #GallerySection .Gallery {
+    height: 55vw;
+    margin-top: 15vw; }
+    main #GallerySection .Gallery h3 {
+      font-family: RalewayBold;
+      font-weight: bold;
+      font-size: 4vw;
+      color: #b6b6b6;
+      letter-spacing: 0.2em;
+      margin: 0px 0px 1.3vw 9.6vw; }
+    main #GallerySection .Gallery .GalleryTable {
+      display: grid;
+      grid-template-rows: auto; }
+      main #GallerySection .Gallery .GalleryTable .SideButton {
+        cursor: pointer;
+        cursor: -moz-pointer;
+        cursor: -o-pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-flow: column;
+        grid-row: 1; }
+        main #GallerySection .Gallery .GalleryTable .SideButton p {
+          font-family: RalewayBold;
+          font-weight: bold;
+          font-size: 1.4vw;
+          color: #b6b6b6;
+          margin: 0;
+          padding: 15px 1vw;
+          letter-spacing: 0.5em;
+          z-index: 1;
+          text-orientation: sideways;
+          writing-mode: vertical-rl;
+          -webkit-transition: transform 0.4s ease-in-out;
+          -moz-transition: transform 0.4s ease-in-out;
+          -ms-transition: transform 0.4s ease-in-out;
+          -o-transition: transform 0.4s ease-in-out;
+          transition: transform 0.4s ease-in-out; }
+          main #GallerySection .Gallery .GalleryTable .SideButton p:hover {
+            -webkit-transform: scale(1.02);
+            -moz-transform: scale(1.02);
+            -ms-transform: scale(1.02);
+            -o-transform: scale(1.02);
+            transform: scale(1.02);
+            -webkit-transition: transform 0.4s ease-in-out;
+            -moz-transition: transform 0.4s ease-in-out;
+            -ms-transition: transform 0.4s ease-in-out;
+            -o-transition: transform 0.4s ease-in-out;
+            transition: transform 0.4s ease-in-out;
+            color: #909090; }
+        main #GallerySection .Gallery .GalleryTable .SideButton svg {
+          position: absolute;
+          cursor: pointer;
+          cursor: -moz-pointer;
+          cursor: -o-pointer; }
+          main #GallerySection .Gallery .GalleryTable .SideButton svg rect {
+            fill: none;
+            stroke: rgba(0, 0, 0, 0.3);
+            stroke-width: 5;
+            stroke-dasharray: 24vw 4vw;
+            stroke-dashoffset: -4vw;
+            -webkit-transition: stroke-dashoffset 0.6s ease-in-out;
+            -moz-transition: stroke-dashoffset 0.6s ease-in-out;
+            -ms-transition: stroke-dashoffset 0.6s ease-in-out;
+            -o-transition: stroke-dashoffset 0.6s ease-in-out;
+            transition: stroke-dashoffset 0.6s ease-in-out; }
+        main #GallerySection .Gallery .GalleryTable .SideButton p:hover + svg rect {
+          stroke-dashoffset: 24vw;
+          -webkit-transition: all 0.6s ease-in-out;
+          -moz-transition: all 0.6s ease-in-out;
+          -ms-transition: all 0.6s ease-in-out;
+          -o-transition: all 0.6s ease-in-out;
+          transition: all 0.6s ease-in-out; }
+    main #GallerySection .Gallery .GalleryBlock {
+      display: flex;
+      grid-row: 1; }
+      main #GallerySection .Gallery .GalleryBlock .GalleryCell {
+        position: relative; }
+        main #GallerySection .Gallery .GalleryBlock .GalleryCell .GalleryImgBlock {
+          position: relative;
+          perspective: 1500px; }
+          main #GallerySection .Gallery .GalleryBlock .GalleryCell .GalleryImgBlock .GalleryTitle {
+            font-family: RalewayBold;
+            font-weight: bold;
+            font-size: 3.4vw;
+            position: absolute;
+            margin: 0;
+            letter-spacing: 0.3em;
+            color: #b6b6b6; }
+          main #GallerySection .Gallery .GalleryBlock .GalleryCell .GalleryImgBlock .GalleryImg {
+            width: 100%;
+            height: 100%;
+            -webkit-transition: all 0.2s linear;
+            -moz-transition: all 0.2s linear;
+            -ms-transition: all 0.2s linear;
+            -o-transition: all 0.2s linear;
+            transition: all 0.2s linear;
+            cursor: pointer;
+            cursor: -moz-pointer;
+            cursor: -o-pointer;
+            filter: blur(0px);
+            -webkit-box-shadow: 0px 0px 11px -1px rgba(0, 0, 0, 0.4);
+            -moz-box-shadow: 0px 0px 11px -1px rgba(0, 0, 0, 0.4);
+            box-shadow: 0px 0px 11px -1px rgba(0, 0, 0, 0.4);
+            display: flex;
+            justify-content: center;
+            align-items: center; }
+            main #GallerySection .Gallery .GalleryBlock .GalleryCell .GalleryImgBlock .GalleryImg svg {
+              width: 92%;
+              height: 92%; }
+              main #GallerySection .Gallery .GalleryBlock .GalleryCell .GalleryImgBlock .GalleryImg svg g rect {
+                stroke: white;
+                stroke-width: 2; }
+              main #GallerySection .Gallery .GalleryBlock .GalleryCell .GalleryImgBlock .GalleryImg svg g text {
+                font-family: RalewayExtraLight;
+                font-size: 1.2vw;
+                fill: white;
+                letter-spacing: 0.3vw;
+                transform: translate(1%, 98%); }
+              main #GallerySection .Gallery .GalleryBlock .GalleryCell .GalleryImgBlock .GalleryImg svg g .KitchenLabel {
+                transform: translate(66%, 98%); }
+          main #GallerySection .Gallery .GalleryBlock .GalleryCell .GalleryImgBlock .GalleryLabel {
+            font-family: RalewayBold;
+            font-weight: bold;
+            font-size: 1.2vw;
+            color: #b6b6b6;
+            letter-spacing: 0.08em;
+            margin-top: 10px;
+            width: 60%; }
+  main #GallerySection .Gallery:nth-child(1) .GalleryTable {
+    grid-template-columns: 1fr 9fr; }
+    main #GallerySection .Gallery:nth-child(1) .GalleryTable .SideButton {
+      grid-column: 1; }
+    main #GallerySection .Gallery:nth-child(1) .GalleryTable .GalleryCell:nth-child(1) .GalleryImgBlock {
+      width: 45vw;
+      height: 30vw; }
+      main #GallerySection .Gallery:nth-child(1) .GalleryTable .GalleryCell:nth-child(1) .GalleryImgBlock #FWardrobeImg {
+        background-image: url("../img/Wardrobe-1.jpg");
+        background-size: cover;
+        background-repeat: no-repeat; }
+    main #GallerySection .Gallery:nth-child(1) .GalleryTable .GalleryCell:nth-child(2) .GalleryImgBlock {
+      width: 47vw;
+      height: 30vw;
+      position: absolute;
+      top: 7vw;
+      left: -13vw; }
+      main #GallerySection .Gallery:nth-child(1) .GalleryTable .GalleryCell:nth-child(2) .GalleryImgBlock .GalleryTitle {
+        top: -5vw;
+        right: -1vw; }
+        main #GallerySection .Gallery:nth-child(1) .GalleryTable .GalleryCell:nth-child(2) .GalleryImgBlock .GalleryTitle::after {
+          content: "";
+          display: table;
+          width: 42%;
+          height: 0.05em;
+          background-color: rgba(255, 0, 0, 0.7);
+          float: right;
+          left: -1vw;
+          position: relative; }
+      main #GallerySection .Gallery:nth-child(1) .GalleryTable .GalleryCell:nth-child(2) .GalleryImgBlock #SWardrobeImg {
+        background-image: url("../img/Wardrobe-2.jpg");
+        background-size: cover;
+        background-repeat: no-repeat; }
+      main #GallerySection .Gallery:nth-child(1) .GalleryTable .GalleryCell:nth-child(2) .GalleryImgBlock .GalleryLabel {
+        text-align: right;
+        float: right; }
+  main #GallerySection .Gallery:nth-child(2) h3 {
+    text-align: right;
+    margin: 0px 9vw 1.3vw 0px; }
+  main #GallerySection .Gallery:nth-child(2) .GalleryTable {
+    grid-template-columns: 9fr 1fr; }
+    main #GallerySection .Gallery:nth-child(2) .GalleryTable .SideButton {
+      grid-column: 2; }
+    main #GallerySection .Gallery:nth-child(2) .GalleryTable .GalleryBlock {
+      flex-direction: row-reverse; }
+      main #GallerySection .Gallery:nth-child(2) .GalleryTable .GalleryBlock .GalleryCell:nth-child(1) .GalleryImgBlock {
+        width: 50vw;
+        height: 31vw; }
+        main #GallerySection .Gallery:nth-child(2) .GalleryTable .GalleryBlock .GalleryCell:nth-child(1) .GalleryImgBlock #SKitchenImg {
+          background-image: url("../img/Kitchen-2.jpg");
+          background-size: cover;
+          background-repeat: no-repeat; }
+          main #GallerySection .Gallery:nth-child(2) .GalleryTable .GalleryBlock .GalleryCell:nth-child(1) .GalleryImgBlock #SKitchenImg else {
+            background-position: center; }
+      main #GallerySection .Gallery:nth-child(2) .GalleryTable .GalleryBlock .GalleryCell:nth-child(1) .GalleryLabel {
+        text-align: right;
+        left: 41%;
+        position: relative; }
+      main #GallerySection .Gallery:nth-child(2) .GalleryTable .GalleryBlock .GalleryCell:nth-child(2) .GalleryImgBlock {
+        width: 45vw;
+        height: 29vw;
+        position: absolute;
+        left: -29vw;
+        top: 7vw; }
+        main #GallerySection .Gallery:nth-child(2) .GalleryTable .GalleryBlock .GalleryCell:nth-child(2) .GalleryImgBlock .GalleryTitle {
+          top: -5vw; }
+          main #GallerySection .Gallery:nth-child(2) .GalleryTable .GalleryBlock .GalleryCell:nth-child(2) .GalleryImgBlock .GalleryTitle::after {
+            content: "";
+            display: table;
+            width: 42%;
+            height: 0.05em;
+            background-color: rgba(255, 0, 0, 0.7); }
+        main #GallerySection .Gallery:nth-child(2) .GalleryTable .GalleryBlock .GalleryCell:nth-child(2) .GalleryImgBlock #FKitchenImg {
+          background-image: url("../img/Kitchen-3.jpg");
+          background-size: cover;
+          background-repeat: no-repeat; }
+          main #GallerySection .Gallery:nth-child(2) .GalleryTable .GalleryBlock .GalleryCell:nth-child(2) .GalleryImgBlock #FKitchenImg else {
+            background-position: center; }
+  main #Suppliers {
+    background-color: #2f2f2f;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0px 4px 0px 0px rgba(255, 0, 0, 0.8); }
+    main #Suppliers h3 {
+      font-family: RalewayBold;
+      font-weight: bold;
+      font-size: 25px;
+      color: #b6b6b6;
+      letter-spacing: 0.1em;
+      margin: 0;
+      margin-left: 5vw; }
+  main #Logo {
+    width: 100%;
+    display: flex; }
+    main #Logo ul {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap; }
+      main #Logo ul li {
+        margin: 1vw 1vw;
+        width: 31%; }
+        main #Logo ul li a {
+          display: flex;
+          align-items: center;
+          flex-direction: column; }
+          main #Logo ul li a .LogoImg {
+            width: 20vw;
+            height: 10vw;
+            -webkit-transition: filter 0.2s linear;
+            -moz-transition: filter 0.2s linear;
+            -ms-transition: filter 0.2s linear;
+            -o-transition: filter 0.2s linear;
+            transition: filter 0.2s linear; }
+          main #Logo ul li a:hover > .LogoImg {
+            filter: brightness(0.5);
+            -webkit-transition: filter 0.2s linear;
+            -moz-transition: filter 0.2s linear;
+            -ms-transition: filter 0.2s linear;
+            -o-transition: filter 0.2s linear;
+            transition: filter 0.2s linear; }
+        main #Logo ul li p {
+          font-family: "RalewayBold";
+          font-weight: bold;
+          font-size: 1.2vw;
+          color: #b6b6b6;
+          width: 80%;
+          text-align: center;
+          margin: 0;
+          letter-spacing: 0.3em; }
+    main #Logo ul li:nth-child(1) a .LogoImg {
+      background-image: url("../img/Logo/Trachea.png");
+      background-size: contain;
+      background-repeat: no-repeat; }
+      main #Logo ul li:nth-child(1) a .LogoImg else {
+        background-position: center; }
+    main #Logo ul li:nth-child(2) a .LogoImg {
+      background-image: url("../img/Logo/Blum.png");
+      background-size: contain;
+      background-repeat: no-repeat; }
+      main #Logo ul li:nth-child(2) a .LogoImg else {
+        background-position: center; }
+    main #Logo ul li:nth-child(3) a .LogoImg {
+      background-image: url("../img/Logo/Egger.png");
+      background-size: contain;
+      background-repeat: no-repeat; }
+      main #Logo ul li:nth-child(3) a .LogoImg else {
+        background-position: center; }
+    main #Logo ul li:nth-child(4) a .LogoImg {
+      background-image: url("../img/Logo/Kronospan.png");
+      background-size: contain;
+      background-repeat: no-repeat; }
+      main #Logo ul li:nth-child(4) a .LogoImg else {
+        background-position: center; }
+    main #Logo ul li:nth-child(5) a .LogoImg {
+      background-image: url("../img/Logo/Hettich.png");
+      background-size: contain;
+      background-repeat: no-repeat; }
+      main #Logo ul li:nth-child(5) a .LogoImg else {
+        background-position: center; }
+
+@keyframes FixedMenu {
+  0% {
+    opacity: 0;
+    top: -50px; }
+  100% {
+    top: 0;
+    opacity: 1; } }
+@-webkit-keyframes FixedMenu {
+  0% {
+    opacity: 0;
+    top: -50px; }
+  100% {
+    top: 0;
+    opacity: 1; } }
+@-moz-keyframes FixedMenu {
+  0% {
+    opacity: 0;
+    top: -50px; }
+  100% {
+    top: 0;
+    opacity: 1; } }
+@-ms-keyframes FixedMenu {
+  0% {
+    opacity: 0;
+    top: -50px; }
+  100% {
+    top: 0;
+    opacity: 1; } }
+div#Review {
+  width: 90%;
+  margin: 0 auto;
+  position: relative;
+  display: flex;
+  flex-direction: column; }
+  div#Review .Header {
+    font-family: "RalewayExtraLight";
+    font-size: 45px;
+    color: #4A4848;
+    margin: 4vw 0px 0px 0px;
+    letter-spacing: 0.1em; }
+    div#Review .Header::before {
+      content: "";
+      display: block;
+      width: 5vw;
+      height: 2px;
+      background-color: rgba(255, 0, 0, 0.6); }
+  div#Review #ReviewInfo {
+    font-family: "RalewayMedium";
+    font-size: 18px;
+    color: #4A4848; }
+  div#Review #Reviews {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 4vw; }
+    div#Review #Reviews .MessageBlock {
+      width: 43vw;
+      height: auto;
+      margin-bottom: 5vw; }
+      div#Review #Reviews .MessageBlock .Customer {
+        margin: 0;
+        font-family: RalewayBold;
+        font-size: 20px;
+        text-transform: uppercase;
+        color: #222222;
+        padding: 7px;
+        border-left: 3px solid rgba(255, 0, 0, 0.6);
+        letter-spacing: 0.1vw; }
+      div#Review #Reviews .MessageBlock .Message {
+        font-family: RalewayExtraLight;
+        font-weight: bold;
+        font-size: 16px;
+        letter-spacing: 0.12vw;
+        line-height: 1.6;
+        color: #646161; }
+  div#Review #Paging {
+    width: 20%;
+    height: 2vw;
+    align-self: flex-end;
+    display: flex;
+    justify-content: space-around;
+    align-items: center; }
+    div#Review #Paging a {
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255, 0, 0, 0.8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-left: 1px solid white;
+      -webkit-transition: background-color 0.3s linear;
+      -moz-transition: background-color 0.3s linear;
+      -ms-transition: background-color 0.3s linear;
+      -o-transition: background-color 0.3s linear;
+      transition: background-color 0.3s linear; }
+      div#Review #Paging a:hover {
+        background-color: #ff1a1a;
+        -webkit-transition: background-color 0.3s linear;
+        -moz-transition: background-color 0.3s linear;
+        -ms-transition: background-color 0.3s linear;
+        -o-transition: background-color 0.3s linear;
+        transition: background-color 0.3s linear; }
+      div#Review #Paging a:hover > span {
+        font-size: 17px;
+        -webkit-transition: font-size 0.2s linear;
+        -moz-transition: font-size 0.2s linear;
+        -ms-transition: font-size 0.2s linear;
+        -o-transition: font-size 0.2s linear;
+        transition: font-size 0.2s linear; }
+      div#Review #Paging a span {
+        font-family: JuraMedium;
+        font-weight: bold;
+        font-size: 15px;
+        -webkit-transition: font-size 0.2s linear;
+        -moz-transition: font-size 0.2s linear;
+        -ms-transition: font-size 0.2s linear;
+        -o-transition: font-size 0.2s linear;
+        transition: font-size 0.2s linear;
+        color: white; }
+    div#Review #Paging .Current {
+      background-color: #ff1a1a;
+      box-shadow: inset 0px 0px 5px 1px rgba(0, 0, 0, 0.3); }
+      div#Review #Paging .Current span {
+        font-size: 17px; }
+  div#Review #Form {
+    margin-bottom: 200px; }
+    div#Review #Form p {
+      font-family: RalewayBold;
+      font-size: 35px;
+      color: #4A4848; }
+    div#Review #Form form {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap; }
+      div#Review #Form form input[type="text"], div#Review #Form form textarea {
+        flex-grow: 1;
+        padding: 2vw;
+        padding-left: 1vw;
+        border: 1px solid #b0aeae;
+        border-radius: 5px;
+        margin: 0.5vw 0.5vw 0.5vw 0px;
+        outline-color: #b0aeae;
+        font-family: RalewayMedium;
+        font-size: 15px; }
+        div#Review #Form form input[type="text"]::placeholder, div#Review #Form form textarea::placeholder {
+          font-family: RalewayThin;
+          font-weight: bold;
+          font-size: 15px; }
+        div#Review #Form form input[type="text"]:focus, div#Review #Form form textarea:focus {
+          outline-style: auto;
+          outline-color: rgba(255, 0, 0, 0.8);
+          outline-width: 5px;
+          outline-offset: -2px;
+          -webkit-transition: outline-color 0.2s linear;
+          -moz-transition: outline-color 0.2s linear;
+          -ms-transition: outline-color 0.2s linear;
+          -o-transition: outline-color 0.2s linear;
+          transition: outline-color 0.2s linear; }
+      div#Review #Form form textarea {
+        width: 85vw;
+        height: 7vw;
+        padding-top: 1vw; }
+      div#Review #Form form input[type="submit"] {
+        padding: 2vw;
+        font-family: RalewayThin;
+        font-weight: bold;
+        font-size: 15px;
+        border: 1px solid #b0aeae;
+        border-radius: 5px;
+        margin: 0.5vw 0.5vw;
+        flex-grow: 0.5;
+        cursor: pointer;
+        cursor: -moz-pointer;
+        cursor: -o-pointer; }
+        div#Review #Form form input[type="submit"]:hover {
+          border: 1.5px solid rgba(255, 0, 0, 0.8);
+          -webkit-transition: border-color 0.3s linear;
+          -moz-transition: border-color 0.3s linear;
+          -ms-transition: border-color 0.3s linear;
+          -o-transition: border-color 0.3s linear;
+          transition: border-color 0.3s linear; }
+
+#Gallery {
+  position: relative;
+  background-color: #222222;
+  height: 90vh; }
+  #Gallery h3 {
+    font-family: RalewayExtraLight;
+    font-size: 2.2vw;
+    color: white;
+    margin: 0 auto;
+    letter-spacing: 0.8vw;
+    width: 90.2%;
+    padding-top: 1.5vw; }
+    #Gallery h3::before {
+      content: "";
+      display: table;
+      width: 10%;
+      height: 0.2vw;
+      background-color: rgba(255, 0, 0, 0.5);
+      margin-bottom: 0.3vw; }
+  #Gallery #GallerySelect {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; }
+    #Gallery #GallerySelect #GalleryContainer {
+      width: 80vw;
+      height: 33vw;
+      margin-top: 1.5vw;
+      position: relative; }
+      #Gallery #GallerySelect #GalleryContainer #GalleryTitle {
+        position: absolute;
+        transform: rotate(-90deg);
+        transform-origin: left;
+        left: -3vw;
+        bottom: -1vw;
+        width: 47%; }
+        #Gallery #GallerySelect #GalleryContainer #GalleryTitle span {
+          font-family: RalewayThin;
+          font-weight: 600;
+          font-size: 1.2vw;
+          color: white;
+          letter-spacing: 0.6vw; }
+          #Gallery #GallerySelect #GalleryContainer #GalleryTitle span::after {
+            content: "";
+            display: table;
+            width: 88%;
+            height: 0.1vw;
+            background-color: white;
+            margin-top: 0.5vw; }
+      #Gallery #GallerySelect #GalleryContainer #GalleryImg {
+        width: 100%;
+        height: 100%;
+        box-shadow: 10px 10px 10px -4px rgba(0, 0, 0, 0.3);
+        display: flex; }
+        #Gallery #GallerySelect #GalleryContainer #GalleryImg .SubCategory {
+          width: 100%;
+          height: 100%;
+          display: flex;
+          align-items: flex-end;
+          justify-content: flex-end;
+          position: relative;
+          cursor: pointer;
+          cursor: -moz-pointer;
+          cursor: -o-pointer; }
+          #Gallery #GallerySelect #GalleryContainer #GalleryImg .SubCategory::before {
+            content: "";
+            display: block;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            filter: brightness(0.7) blur(1px);
+            -webkit-transition: filter 0.2s linear;
+            -moz-transition: filter 0.2s linear;
+            -ms-transition: filter 0.2s linear;
+            -o-transition: filter 0.2s linear;
+            transition: filter 0.2s linear;
+            background-position: center center ;
+            background-size: cover;
+            background-repeat: no-repeat; }
+            #Gallery #GallerySelect #GalleryContainer #GalleryImg .SubCategory::before else {
+              background-position: center, center; }
+          #Gallery #GallerySelect #GalleryContainer #GalleryImg .SubCategory:hover > .SubTitle p {
+            color: red;
+            text-shadow: 1px 3px 1px rgba(0, 0, 0, 0.6);
+            -webkit-transition: all 0.2s linear;
+            -moz-transition: all 0.2s linear;
+            -ms-transition: all 0.2s linear;
+            -o-transition: all 0.2s linear;
+            transition: all 0.2s linear; }
+          #Gallery #GallerySelect #GalleryContainer #GalleryImg .SubCategory:hover::before {
+            filter: brightness(1);
+            -webkit-transition: filter 0.2s linear;
+            -moz-transition: filter 0.2s linear;
+            -ms-transition: filter 0.2s linear;
+            -o-transition: filter 0.2s linear;
+            transition: filter 0.2s linear; }
+          #Gallery #GallerySelect #GalleryContainer #GalleryImg .SubCategory .SubTitle {
+            width: 50%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1; }
+            #Gallery #GallerySelect #GalleryContainer #GalleryImg .SubCategory .SubTitle p {
+              font-family: RalewayMedium;
+              font-size: 1.3vw;
+              color: white;
+              letter-spacing: 0.5vw;
+              text-align: center;
+              -webkit-transition: color 0.2s linear;
+              -moz-transition: color 0.2s linear;
+              -ms-transition: color 0.2s linear;
+              -o-transition: color 0.2s linear;
+              transition: color 0.2s linear; }
+        #Gallery #GallerySelect #GalleryContainer #GalleryImg .SubCategory:last-child {
+          display: none; }
+        #Gallery #GallerySelect #GalleryContainer #GalleryImg .KitchenCategory:nth-child(1)::before {
+          background-image: url("../img/Gallery/Menu/Lamine.jpg"); }
+        #Gallery #GallerySelect #GalleryContainer #GalleryImg .KitchenCategory:nth-child(2)::before {
+          background-image: url("../img/Gallery/Menu/Foil.jpg"); }
+        #Gallery #GallerySelect #GalleryContainer #GalleryImg .InteriorCategory:nth-child(1)::before {
+          background-image: url("../img/Gallery/Menu/Kids.jpg"); }
+        #Gallery #GallerySelect #GalleryContainer #GalleryImg .InteriorCategory:nth-child(2)::before {
+          background-image: url("../img/Gallery/Menu/Bedroom.jpg"); }
+        #Gallery #GallerySelect #GalleryContainer #GalleryImg .InteriorCategory:nth-child(3)::before {
+          background-image: url("../img/Gallery/Menu/Other.jpg"); }
+    #Gallery #GallerySelect ul {
+      display: flex;
+      justify-content: space-around;
+      padding: 0;
+      width: 80vw;
+      margin-top: 3vw; }
+      #Gallery #GallerySelect ul li {
+        cursor: pointer;
+        cursor: -moz-pointer;
+        cursor: -o-pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center; }
+        #Gallery #GallerySelect ul li p {
+          font-family: RalewayMedium;
+          font-size: 1vw;
+          color: white;
+          margin: 0;
+          letter-spacing: 0.2vw;
+          padding: 1vw 4.6vw;
+          z-index: 1;
+          -webkit-transition: transform 0.2s linear;
+          -moz-transition: transform 0.2s linear;
+          -ms-transition: transform 0.2s linear;
+          -o-transition: transform 0.2s linear;
+          transition: transform 0.2s linear; }
+          #Gallery #GallerySelect ul li p:hover {
+            -webkit-transform: scale(1.05);
+            -moz-transform: scale(1.05);
+            -ms-transform: scale(1.05);
+            -o-transform: scale(1.05);
+            transform: scale(1.05);
+            -webkit-transition: transform 0.2s linear;
+            -moz-transition: transform 0.2s linear;
+            -ms-transition: transform 0.2s linear;
+            -o-transition: transform 0.2s linear;
+            transition: transform 0.2s linear; }
+        #Gallery #GallerySelect ul li svg {
+          position: absolute;
+          cursor: pointer;
+          cursor: -moz-pointer;
+          cursor: -o-pointer; }
+          #Gallery #GallerySelect ul li svg rect {
+            fill: none;
+            stroke: white;
+            stroke-width: 0.1vw;
+            stroke-dasharray: 22vw 3.3vw;
+            -webkit-transition: all 0.6s ease-in-out;
+            -moz-transition: all 0.6s ease-in-out;
+            -ms-transition: all 0.6s ease-in-out;
+            -o-transition: all 0.6s ease-in-out;
+            transition: all 0.6s ease-in-out; }
+        #Gallery #GallerySelect ul li p:hover + svg rect {
+          stroke: rgba(255, 0, 0, 0.7);
+          stroke-dashoffset: 25.5vw;
+          stroke-width: 0.2vw;
+          -webkit-transition: all 0.6s ease-in-out;
+          -moz-transition: all 0.6s ease-in-out;
+          -ms-transition: all 0.6s ease-in-out;
+          -o-transition: all 0.6s ease-in-out;
+          transition: all 0.6s ease-in-out; }
+      #Gallery #GallerySelect ul li:nth-child(2) rect {
+        stroke-dasharray: 14vw 3.3vw; }
+      #Gallery #GallerySelect ul li:nth-child(2) p:hover + svg rect {
+        stroke-dashoffset: 17.5vw; }
+  #Gallery #GalleryGrid {
+    width: 90%;
+    height: 80%;
+    margin: 2vw auto;
+    display: none;
+    grid-template: auto auto auto / 1fr 1fr 1fr;
+    grid-gap: 1vw 1vw; }
+    #Gallery #GalleryGrid .ImgContainer {
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+      cursor: -moz-pointer;
+      cursor: -o-pointer; }
+      #Gallery #GalleryGrid .ImgContainer .Img {
+        background-position: center center ;
+        background-size: cover;
+        background-repeat: no-repeat;
+        width: 100%;
+        height: 100%; }
+        #Gallery #GalleryGrid .ImgContainer .Img else {
+          background-position: center, center; }
+
+#Contact {
+  position: relative;
+  width: 90%;
+  margin: 0 auto; }
+  #Contact h3 {
+    font-family: RalewayExtraLight;
+    font-size: 45px;
+    color: #4A4848;
+    letter-spacing: 0.1em;
+    margin: 4vw 0px 2vw 0px; }
+    #Contact h3::before {
+      content: "";
+      display: block;
+      width: 5vw;
+      height: 2px;
+      background-color: rgba(255, 0, 0, 0.6); }
+  #Contact #FormBlock #ContactInformation {
+    float: left;
+    width: 30%;
+    height: 30vw;
+    background-color: #222222;
+    box-shadow: 10px 10px 0px -3px rgba(255, 0, 0, 0.8);
+    clear: both; }
+    #Contact #FormBlock #ContactInformation .Info {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      margin: 2vw; }
+      #Contact #FormBlock #ContactInformation .Info svg {
+        width: 80px;
+        height: 80px;
+        fill: white; }
+        #Contact #FormBlock #ContactInformation .Info svg:hover + p {
+          -webkit-transform: scale(1.1);
+          -moz-transform: scale(1.1);
+          -ms-transform: scale(1.1);
+          -o-transform: scale(1.1);
+          transform: scale(1.1);
+          -webkit-transition: transform 0.2s linear;
+          -moz-transition: transform 0.2s linear;
+          -ms-transition: transform 0.2s linear;
+          -o-transition: transform 0.2s linear;
+          transition: transform 0.2s linear; }
+      #Contact #FormBlock #ContactInformation .Info p {
+        font-family: JuraMedium;
+        font-size: 16px;
+        margin: 0;
+        margin-top: 1vw;
+        color: #b0aeae;
+        -webkit-transition: transform 0.2s linear;
+        -moz-transition: transform 0.2s linear;
+        -ms-transition: transform 0.2s linear;
+        -o-transition: transform 0.2s linear;
+        transition: transform 0.2s linear; }
+        #Contact #FormBlock #ContactInformation .Info p:hover {
+          -webkit-transform: scale(1.1);
+          -moz-transform: scale(1.1);
+          -ms-transform: scale(1.1);
+          -o-transform: scale(1.1);
+          transform: scale(1.1);
+          -webkit-transition: transform 0.2s linear;
+          -moz-transition: transform 0.2s linear;
+          -ms-transition: transform 0.2s linear;
+          -o-transition: transform 0.2s linear;
+          transition: transform 0.2s linear; }
+        #Contact #FormBlock #ContactInformation .Info p .Hightlight {
+          font-family: RalewayMedium;
+          color: red; }
+  #Contact #FormBlock #Inputs {
+    clear: right; }
+    #Contact #FormBlock #Inputs form {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      width: 60%;
+      height: 30vw;
+      align-items: center;
+      margin: 0 auto; }
+      #Contact #FormBlock #Inputs form .ContactBlock {
+        position: relative; }
+        #Contact #FormBlock #Inputs form .ContactBlock input[type="text"], #Contact #FormBlock #Inputs form .ContactBlock input[type="email"], #Contact #FormBlock #Inputs form .ContactBlock input[type="tel"] {
+          font-family: JuraMedium;
+          font-weight: bold;
+          font-size: 16px;
+          flex-grow: 1;
+          padding: 1.3vw;
+          padding-left: 0vw;
+          border-bottom: 1px solid #b0aeae;
+          margin: 0.5vw 2vw 0.5vw 2vw; }
+          #Contact #FormBlock #Inputs form .ContactBlock input[type="text"]:focus + label, #Contact #FormBlock #Inputs form .ContactBlock input[type="email"]:focus + label, #Contact #FormBlock #Inputs form .ContactBlock input[type="tel"]:focus + label {
+            top: 10px;
+            font-size: 12px;
+            -webkit-transition: top 0.3s, font-size 0.3s ease-in-out;
+            -moz-transition: top 0.3s, font-size 0.3s ease-in-out;
+            -ms-transition: top 0.3s, font-size 0.3s ease-in-out;
+            -o-transition: top 0.3s, font-size 0.3s ease-in-out;
+            transition: top 0.3s, font-size 0.3s ease-in-out; }
+          #Contact #FormBlock #Inputs form .ContactBlock input[type="text"]:focus, #Contact #FormBlock #Inputs form .ContactBlock input[type="email"]:focus, #Contact #FormBlock #Inputs form .ContactBlock input[type="tel"]:focus {
+            border-bottom: 1.5px solid rgba(255, 0, 0, 0.6);
+            -webkit-transition: all 0.3s ease-in-out;
+            -moz-transition: all 0.3s ease-in-out;
+            -ms-transition: all 0.3s ease-in-out;
+            -o-transition: all 0.3s ease-in-out;
+            transition: all 0.3s ease-in-out; }
+        #Contact #FormBlock #Inputs form .ContactBlock label {
+          font-family: RalewayExtraLight;
+          font-weight: bold;
+          font-size: 14px;
+          color: #7e7a7a;
+          position: absolute;
+          left: 0;
+          top: 30px;
+          margin-left: 2vw;
+          z-index: -1;
+          border-left: 1.1px solid rgba(255, 0, 0, 0.6);
+          padding-left: 5px;
+          -webkit-transition: top 0.3s, font-size 0.3s ease-in-out;
+          -moz-transition: top 0.3s, font-size 0.3s ease-in-out;
+          -ms-transition: top 0.3s, font-size 0.3s ease-in-out;
+          -o-transition: top 0.3s, font-size 0.3s ease-in-out;
+          transition: top 0.3s, font-size 0.3s ease-in-out; }
+      #Contact #FormBlock #Inputs form textarea {
+        font-family: RalewayBold;
+        font-size: 1vw;
+        width: 46vw;
+        height: 5vw;
+        padding: 5px 0px 0px 0px;
+        border-bottom: 1px solid #b0aeae;
+        outline-style: none;
+        margin: 0.5vw 2vw 0.5vw 2vw; }
+        #Contact #FormBlock #Inputs form textarea::placeholder {
+          font-family: RalewayExtraLight;
+          font-weight: bold;
+          font-size: 14px; }
+      #Contact #FormBlock #Inputs form #SubmitBlock {
+        margin-left: 2vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        padding: 0px 5vw; }
+        #Contact #FormBlock #Inputs form #SubmitBlock span {
+          font-family: RalewayBold;
+          font-size: 15px;
+          color: #b6b6b6;
+          letter-spacing: 0.8vw; }
+        #Contact #FormBlock #Inputs form #SubmitBlock svg {
+          position: absolute;
+          cursor: pointer;
+          cursor: -moz-pointer;
+          cursor: -o-pointer; }
+          #Contact #FormBlock #Inputs form #SubmitBlock svg rect {
+            fill: none;
+            stroke: rgba(0, 0, 0, 0.3);
+            stroke-width: 0.3vw;
+            stroke-dasharray: 20vw 33vw;
+            stroke-dashoffset: 29vw;
+            -webkit-transition: stroke-dasharray 0.9s, stroke-dashoffset 0.9s ease-in-out;
+            -moz-transition: stroke-dasharray 0.9s, stroke-dashoffset 0.9s ease-in-out;
+            -ms-transition: stroke-dasharray 0.9s, stroke-dashoffset 0.9s ease-in-out;
+            -o-transition: stroke-dasharray 0.9s, stroke-dashoffset 0.9s ease-in-out;
+            transition: stroke-dasharray 0.9s, stroke-dashoffset 0.9s ease-in-out; }
+          #Contact #FormBlock #Inputs form #SubmitBlock svg:hover > rect {
+            stroke-dasharray: 51vw 0vw;
+            stroke-dashoffset: 0vw;
+            stroke-width: 0.4vw;
+            -webkit-transition: all 0.9s ease-in-out;
+            -moz-transition: all 0.9s ease-in-out;
+            -ms-transition: all 0.9s ease-in-out;
+            -o-transition: all 0.9s ease-in-out;
+            transition: all 0.9s ease-in-out;
+            stroke: rgba(255, 0, 0, 0.6); }
+          #Contact #FormBlock #Inputs form #SubmitBlock svg:hover + span {
+            font-size: 18px; }
+  #Contact #MapLocation {
+    width: 100%;
+    height: 15vw;
+    margin-top: 5vw;
+    display: flex; }
+    #Contact #MapLocation #LocationInfo {
+      flex-grow: 0;
+      height: 100%;
+      background-color: #4A4848; }
+      #Contact #MapLocation #LocationInfo .Info {
+        display: flex;
+        align-items: center;
+        flex-direction: column; }
+        #Contact #MapLocation #LocationInfo .Info .AddressIcon {
+          position: relative;
+          height: 5vw; }
+          #Contact #MapLocation #LocationInfo .Info .AddressIcon svg {
+            fill: white;
+            width: 45px;
+            height: 45px;
+            padding: 1vw;
+            border-bottom: 1px solid white;
+            cursor: pointer; }
+          #Contact #MapLocation #LocationInfo .Info .AddressIcon:hover::after {
+            content: "";
+            width: 0.3vw;
+            height: 99%;
+            background-color: rgba(255, 0, 0, 0.6);
+            position: absolute;
+            top: 0;
+            right: 0; }
+          #Contact #MapLocation #LocationInfo .Info .AddressIcon:hover {
+            box-shadow: inset 4px -4px 5px -1px rgba(0, 0, 0, 0.4); }
+        #Contact #MapLocation #LocationInfo .Info .AddressIcon:last-child > svg {
+          border: none; }
+    #Contact #MapLocation iframe {
+      flex-grow: 1;
+      border: 0;
+      height: 100%; }
+    #Contact #MapLocation::after {
+      content: "Ze zastávky Letňany (stanice metra C) autobusem 351 do zastávky Měšice";
+      width: 100%;
+      height: 2vw;
+      background-color: #222222;
+      bottom: -2vw;
+      position: absolute;
+      color: white;
+      font-family: RalewayMedium;
+      font-size: 15px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      letter-spacing: 0.1vw; }
+
+#ContactFooter {
+  float: left;
+  margin-top: 5vw; }
+
+#Realization {
+  width: 90%;
+  margin: 0 auto;
+  position: relative; }
+  #Realization h3 {
+    font-family: RalewayExtraLight;
+    font-size: 45px;
+    color: #4A4848;
+    letter-spacing: 0.1em;
+    margin: 4vw 0 0 0; }
+    #Realization h3::before {
+      content: "";
+      display: block;
+      width: 5vw;
+      height: 2px;
+      background-color: rgba(255, 0, 0, 0.6); }
+  #Realization section {
+    width: 60%;
+    height: 10vw;
+    background-color: blue;
+    position: relative; }
+    #Realization section h4 {
+      font-family: RalewayBold;
+      font-size: 15px;
+      letter-spacing: 0.2vw;
+      transform: rotate(-90deg);
+      transform-origin: left;
+      position: absolute;
+      top: 0;
+      left: 0; }
+
+/*# sourceMappingURL=style.css.map */

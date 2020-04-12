@@ -1,0 +1,19 @@
+/* Reset file to null styles */
+@import 'styles/exter/base';
+@import 'styles/exter/emixin';
+@import 'styles/exter/animations';
+
+/* Mixin file to create function and others */
+@import 'mixin';
+
+/* Parts of repeateble styles  */
+@import 'styles/parts/basic';
+@import 'styles/parts/menu';
+@import 'styles/parts/footer';
+
+/* Styles of specific sites */
+@import 'styles/sites/index';
+@import 'styles/sites/review';
+@import 'styles/sites/gallery';
+@import 'styles/sites/contact';
+@import 'styles/sites/realization';

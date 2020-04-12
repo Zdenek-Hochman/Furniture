@@ -1,0 +1,172 @@
+#Gallery {
+    position: relative;
+    background-color: #222222;
+    height: 90vh;
+
+    h3 {
+        @include Font(RalewayExtraLight, null, 2.2vw, null);
+        color: white;
+        margin: 0 auto;
+        letter-spacing: 0.8vw;
+        width: 90.2%;
+        padding-top: 1.5vw;
+        &::before {
+            @include Pseudo("", table, 10%, 0.2vw);
+            background-color: rgba(255,0,0,0.5);
+            margin-bottom: 0.3vw;
+        }
+    }
+    #GallerySelect {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        #GalleryContainer {
+            width: 80vw;
+            height: 33vw;
+            margin-top: 1.5vw;
+            position: relative;
+            #GalleryTitle {
+                position: absolute;
+                transform: rotate(-90deg);
+                transform-origin: left;
+                left: -3vw;
+                bottom: -1vw;
+                width: 47%;
+                span {
+                    @include Font(RalewayThin, 600, 1.2vw, null);
+                    color: white;
+                    letter-spacing: 0.6vw;
+                    &::after {
+                        @include Pseudo("", table, 88%, 0.1vw);
+                        background-color: white;
+                        margin-top: 0.5vw;
+                    }
+                }
+            }
+            #GalleryImg {
+                width: 100%;
+                height: 100%;
+                box-shadow: 10px 10px 10px -4px rgba(0, 0, 0, 0.3);
+                display: flex;
+                .SubCategory {
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    align-items: flex-end;
+                    justify-content: flex-end;
+                    position: relative;
+                    &::before {
+                        @include Pseudo("", block, 100%, 100%);
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        filter: brightness(0.7) blur(1px);
+                        @include Transition(filter, 0.2s, null, linear);
+                        @include Background(null, (center, center), cover, no-repeat);
+                    }
+                    @include cursor(pointer);
+                    &:hover > .SubTitle p {
+                        color: rgba(255,0,0,1);
+                        text-shadow: 1px 3px 1px rgba(0, 0, 0, 0.6);
+                        @include Transition(all, 0.2s, null, linear);
+                    }
+                    &:hover::before {
+                        filter: brightness(1);
+                        @include Transition(filter, 0.2s, null, linear);
+                    }
+                    .SubTitle {
+                        width: 50%;
+                        height: 100%;
+                        background-color: rgba(0,0,0,0.7);
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        z-index: 1;
+                        p {
+                            @include Font(RalewayMedium, null, 1.3vw, null);
+                            color: white;
+                            letter-spacing: 0.5vw;
+                            text-align: center;
+                            @include Transition(color, 0.2s, null, linear);
+                        }
+                    }
+                }
+                .SubCategory:last-child {
+                    display: none;
+                }
+                @include GenerateImg;
+            }
+        }
+        ul {
+            display: flex;
+            justify-content: space-around;
+            padding: 0;
+            width: 80vw;
+            margin-top: 3vw;
+            li {
+                @include cursor(pointer);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                p {
+                    @include Font(RalewayMedium, null, 1vw, null);
+                    color: white;
+                    margin: 0;
+                    letter-spacing: 0.2vw;
+                    padding: 1vw 4.6vw;
+                    z-index: 1;
+                    @include Transition(transform, 0.2s, null, linear);
+                    &:hover {
+                        @include Transform(null, scale(1.05));
+                        @include Transition(transform, 0.2s, null, linear);
+                    }
+                }
+                svg {
+                    position: absolute;
+                    @include cursor(pointer);
+                    rect {
+                        fill: none;
+                        stroke: white;
+                        stroke-width: 0.1vw;
+                        stroke-dasharray: 22vw 3.3vw;
+                        @include Transition(all, 0.6s, null, ease-in-out);
+                    }
+                }
+                p:hover + svg rect {
+                    stroke: rgba(255,0,0,0.7);
+                    stroke-dashoffset: 25.5vw;
+                    stroke-width: 0.2vw;
+                    @include Transition(all, 0.6s, null, ease-in-out);
+                }
+            }
+            li:nth-child(2) {
+                rect {
+                    stroke-dasharray: 14vw 3.3vw;
+                }
+                p:hover + svg rect {
+                    stroke-dashoffset: 17.5vw;
+                }
+            }
+        }
+    }
+
+    #GalleryGrid {
+        width: 90%;
+        height: 80%;
+        margin: 2vw auto;
+        display: none;
+        grid-template: auto auto auto / 1fr 1fr 1fr;
+        grid-gap: 1vw 1vw;
+        .ImgContainer {
+            width: 100%;
+            height: 100%;
+            @include cursor(pointer);
+            .Img {
+                @include Background(null, (center, center), cover, no-repeat);
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+}

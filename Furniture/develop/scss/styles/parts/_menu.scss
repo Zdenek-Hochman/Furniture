@@ -1,0 +1,53 @@
+nav#BasicMenu {
+    width: 100%;
+    display: flex;
+    background-color: darken(#2f2f2f, 5%);
+    #Menu {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        #Logo {
+            p {
+                display: grid;
+                grid-template: auto auto / 1fr 1fr 5fr;
+                color: white;
+                margin: 10px 0px 10px 10px;
+                white-space: nowrap;
+                @include Font(RalewayBold, null, 1.7vw, null);
+                span:nth-child(1) {
+                    grid-column: 1;
+                    grid-column-end: 4;
+                }
+                span:nth-child(2) {
+                    font-family: RalewayExtraLight;
+                    grid-column-end: 4;
+                }
+            }
+        }
+        ul {
+            display: flex;
+            li {
+                @include Font(RalewayThin, bold, 0.9vw, null);
+                letter-spacing: 0.07em;
+                @include UserSelect(none);
+                margin: 0px 2.2vw;
+                white-space: nowrap;
+            }
+        }
+    }
+}
+
+.Reverse {
+    background-color: white !important;
+    p {
+        color: $LightBlack !important;
+    }
+    li {
+        font-weight: normal !important;
+        font-family: RalewayMedium !important;
+        a {
+            color: $LightBlack !important;
+        }
+    }
+}
